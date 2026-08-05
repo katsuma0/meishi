@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76mm" height="50mm" viewBox="0 0 76 50">
+<title>Table tag, 76 by 50mm: tap for the menu</title>
+<rect width="76" height="50" rx="4" fill="#22304a"/>
+<rect x="0" y="4" width="1.5" height="42" fill="#a13d36"/>
+<text x="38" y="25" font-family="system-ui, 'Segoe UI', Roboto, Arial, sans-serif" font-size="5.6" font-weight="700" fill="#f2eee4" text-anchor="middle">Tap for the menu</text>
+<text x="38" y="33.5" font-family="system-ui, 'Segoe UI', Roboto, Arial, sans-serif" font-size="3.4" font-weight="400" fill="#f2eee4" text-anchor="middle" opacity=".85">no app, nothing to install</text>
+</svg>
