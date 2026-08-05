@@ -640,6 +640,17 @@ td:last-child, th:last-child { padding-right: 0; }
   color: var(--ink);
   border-top: 1px solid var(--line);
   font-size: 1rem;
+  text-align: center;
+}
+
+.foot-note { margin-bottom: .875rem; }
+
+.foot-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .375rem 1.75rem;
+  margin: 0;
 }
 
 .site-foot .wrap {
@@ -662,6 +673,16 @@ td:last-child, th:last-child { padding-right: 0; }
 /* laptop and tablet: the column breathes, the shop grid breaks out to full
    width, and the nav band sticks so every page is one click away. all of it
    is css; the pages stay the same size and the same speed. */
+
+@media (min-width: 64rem) {
+  .mark-kanji { font-size: 4.2rem; }
+  .site-head .wrap {
+    max-width: 52rem;
+    gap: 2.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
 
 @media (min-width: 48rem) {
   .shop {
@@ -745,9 +766,12 @@ td:last-child, th:last-child { padding-right: 0; }
 </main>
 
 <footer class="site-foot"><div class="wrap">
-  <p><a href="https://katsuma0.github.io">Katsuma Onishi</a>, Markham, Ontario.</p>
-  <p><a href="mailto:katsuma@meishi.shop">katsuma@meishi.shop</a> · <a href="tel:+16475254859">(647) 525-4859</a></p>
-  <p>All prices in Canadian dollars, plus HST. Cash or e-transfer.</p>
+  <p class="foot-note">All prices in Canadian dollars, plus HST. Cash or e-transfer.</p>
+  <p class="foot-links">
+    <a href="https://katsuma0.github.io">Katsuma Onishi</a>
+    <a href="mailto:katsuma@meishi.shop">katsuma@meishi.shop</a>
+    <a href="tel:+16475254859">(647) 525-4859</a>
+  </p>
 </div></footer>
 </body>
 </html>
