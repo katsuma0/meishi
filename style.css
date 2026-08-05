@@ -317,6 +317,17 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .card-list .from { font-variant-numeric: tabular-nums; white-space: nowrap; }
 
+/* sticker mockups on /uses */
+
+.mock {
+  display: block;
+  width: 100%;
+  max-width: 16rem;
+  height: auto;
+  border: 1px solid var(--line);
+  margin: 0 0 .75rem;
+}
+
 /* work entries */
 
 .job {
