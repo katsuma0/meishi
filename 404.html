@@ -130,8 +130,8 @@ body::before {
   flex-wrap: nowrap;
   align-items: center;
   gap: 1.25rem;
-  padding-top: .625rem;
-  padding-bottom: .625rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
 }
 
 .mark {
@@ -139,15 +139,17 @@ body::before {
   text-decoration: none;
   color: var(--cotton);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: .625rem;
   flex-shrink: 0;
 }
 
+.mark-name { padding-bottom: .375rem; }
+
 .mark-kanji {
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 4.2rem;
   line-height: 1;
   letter-spacing: .04em;
 }
@@ -177,7 +179,7 @@ body::before {
    bar fits without sliding and nothing ever moves */
 @media (max-width: 26rem) {
   .mark-name { display: none; }
-  .mark-kanji { font-size: 2.25rem; }
+  .mark-kanji { font-size: 3rem; }
   .site-head .wrap { gap: .625rem; }
   .site-head nav { font-size: .875rem; font-weight: 500; gap: 0 .625rem; }
   .site-head nav a { padding-left: .0625rem; padding-right: .0625rem; }
