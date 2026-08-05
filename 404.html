@@ -516,6 +516,22 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .grid .photo { margin: 0; }
 
+/* shared card designs, shown three-up and portrait on every material page */
+
+.designs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(.5rem, 2.5vw, 1rem);
+  margin: 0 0 1rem;
+}
+
+.designs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
 /* sticker mockups on /uses */
 
 .mock {

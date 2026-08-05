@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="54mm" height="86mm" viewBox="0 0 54 86">
+<title>Card design: selvedge edge with running stitches</title>
+<rect width="54" height="86" fill="#f7f4ec"/>
+<rect x="1" y="1" width="52" height="84" fill="none" stroke="#ddd6c6" stroke-width=".6"/>
+<rect width="2.4" height="86" fill="#a13d36"/>
+<line x1="6.5" y1="5" x2="6.5" y2="81" stroke="#a13d36" stroke-width=".9" stroke-dasharray="3 2.6"/>
+<text x="46" y="14" font-family="'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif" font-size="7" fill="#22304a" text-anchor="middle">刺</text>
+<text x="13" y="48" font-family="system-ui,'Segoe UI',Roboto,Arial,sans-serif" font-size="4.4" font-weight="700" letter-spacing="1" fill="#22304a">YOUR NAME</text>
+<text x="13" y="54.5" font-family="system-ui,'Segoe UI',Roboto,Arial,sans-serif" font-size="3" fill="#22304a" opacity=".75">your shop</text>
+<circle cx="44" cy="76" r="1" fill="#22304a"/>
+<circle cx="48" cy="76" r="1" fill="#22304a" opacity=".55"/>
+<circle cx="40" cy="76" r="1" fill="#22304a" opacity=".55"/>
+</svg>
