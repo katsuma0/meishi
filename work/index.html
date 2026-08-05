@@ -527,51 +527,76 @@ td:last-child, th:last-child { padding-right: 0; }
 .prose { max-width: 62ch; }
 .prose p { line-height: 1.75; margin-bottom: 1.25rem; }
 
-/* home page card list, each row wearing a swatch of its material */
+/* the shop grid: each material drawn as a small card, tap it to open its page.
+   the catalog feel of a storefront, with zero images and zero script. */
 
-.card-list {
+.shop {
   list-style: none;
   padding: 0;
   margin: 0 0 1.5rem;
-  border-top: 2px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 1.25rem 1rem;
 }
 
-.card-list li {
-  border-bottom: 1px solid var(--line);
-}
-
-.card-list a {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: baseline;
-  padding: .8125rem .375rem;
-  margin: 0 -.375rem;
+.shop a {
+  display: block;
   text-decoration: none;
 }
 
-.card-list a:hover { background: var(--tint); }
+.shop a:active { transform: scale(.98); }
 
-.card-list a:active { transform: scale(.985); background: var(--tint); }
-
-.card-list .mat { font-family: var(--display); font-weight: 600; }
-
-.card-list .from { font-variant-numeric: tabular-nums; white-space: nowrap; }
-
-.swatch {
-  display: inline-block;
-  width: 1.125rem;
-  height: 1.125rem;
-  margin-right: .625rem;
-  vertical-align: -3px;
+.tile {
+  display: block;
+  aspect-ratio: 856 / 540; /* the proportions of a real card */
   border: 1px solid var(--line);
+  transition: border-color .15s ease;
 }
 
-.swatch--metal { background: var(--steel); }
-.swatch--wood { background: var(--ply); }
-.swatch--paper { background: var(--cotton); }
-.swatch--fabric { background: var(--cotton); border-style: dashed; }
-.swatch--selvedge { background: var(--indigo); border-left: 3px solid var(--selvedge); }
+.shop a:hover .tile { border-color: var(--accent); }
+
+.tile--metal {
+  background: var(--steel);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .28) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, rgba(255, 255, 255, .25), rgba(0, 0, 0, .08));
+}
+
+.tile--selvedge {
+  background: var(--indigo);
+  background-image: var(--twill);
+  border-left: 4px solid var(--selvedge);
+}
+
+.tile--wood {
+  background: var(--ply);
+  background-image: repeating-linear-gradient(90deg, rgba(110, 78, 38, .14) 0 2px, transparent 2px 11px);
+}
+
+.tile--fabric {
+  background: var(--cotton);
+  border: 2px dashed var(--line);
+}
+
+.tile--paper {
+  background: #fbf9f4;
+  background-image: radial-gradient(circle at 76% 34%,
+    transparent 11px, var(--ply) 11px 12.5px, transparent 12.5px 16px,
+    var(--ply) 16px 17.5px, transparent 17.5px 21px, var(--ply) 21px 22.5px,
+    transparent 22.5px); /* the copper coil, showing through the paper */
+}
+
+.shop-row {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  align-items: baseline;
+  padding-top: .375rem;
+}
+
+.shop .mat { font-family: var(--display); font-weight: 600; color: var(--ink); }
+.shop a:hover .mat { color: var(--accent); }
+.shop .from { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--ink); }
 
 /* work entries */
 
