@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
-<title>Stickers: wifi, reviews, menus | meishi</title>
-<meta name="description" content="The same NFC tap as the cards, cut as stickers and counter tags: guest wifi, Google reviews, directions, Instagram, menus. Markham, Ontario.">
+<title>Products: cards and stickers | meishi</title>
+<meta name="description" content="NFC cards in six materials, plus tap stickers: guest wifi, Google reviews, directions, Instagram, menus. Markham, Ontario.">
 <link rel="canonical" href="https://meishi.shop/uses">
 <style>
 /* meishi.shop
@@ -170,9 +170,30 @@ body::before {
   align-items: center;
   margin-inline: auto;
   max-width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
 }
+
+/* the products dropdown: pure css, opens on hover or keyboard focus */
+.nav-item { position: relative; }
+
+.nav-item > .drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  min-width: 8.5rem;
+  background: var(--band);
+  background-image: var(--twill);
+  border: 1px solid rgba(242, 238, 228, .2);
+  border-top: 0;
+  padding: .25rem 0;
+}
+
+.nav-item:hover > .drop,
+.nav-item:focus-within > .drop { display: flex; }
+
+.drop a { text-align: center; padding: .5rem 1rem; }
 
 .site-head nav::-webkit-scrollbar { display: none; }
 
@@ -182,8 +203,9 @@ body::before {
   .mark-name { display: none; }
   .mark-kanji { font-size: 2.7rem; }
   .site-head .wrap { gap: .625rem; }
-  .site-head nav { font-size: .875rem; font-weight: 500; gap: 0 .625rem; }
+  .site-head nav { font-size: .875rem; font-weight: 500; gap: 0 .625rem; overflow-x: auto; }
   .site-head nav a { padding-left: .0625rem; padding-right: .0625rem; }
+  .nav-item > .drop { display: none !important; }
 }
 
 .site-head nav a {
@@ -725,8 +747,8 @@ td:last-child, th:last-child { padding-right: 0; }
 }
 </style>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Stickers: wifi, reviews, and menu tags">
-<meta property="og:description" content="The same NFC tap as the cards, cut as stickers and counter tags: guest wifi, Google reviews, directions, Instagram, menus.">
+<meta property="og:title" content="Products: cards and stickers">
+<meta property="og:description" content="NFC cards in six materials, plus tap stickers: wifi, reviews, directions, Instagram, menus.">
 <meta property="og:url" content="https://meishi.shop/uses">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="meishi">
@@ -740,7 +762,13 @@ td:last-child, th:last-child { padding-right: 0; }
 <header class="site-head"><div class="wrap">
   <a class="mark" href="../"><span class="mark-kanji" lang="ja">名刺</span><span class="mark-name">meishi</span></a>
   <nav aria-label="Site">
-    <a href="../uses">Stickers</a>
+    <div class="nav-item">
+      <a href="../uses">Products</a>
+      <div class="drop">
+        <a href="../">Cards</a>
+        <a href="../uses">Stickers</a>
+      </div>
+    </div>
     <a href="../samples">Samples</a>
     <a href="../order">Order</a>
   </nav>
@@ -748,37 +776,37 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <main id="main">
 <div class="wrap">
-  <h1>Stickers</h1>
-  <p class="lede">The chip in my cards does not care what it is glued to. The same tap that opens a business card link can hand out your wifi, open your review page, or pull up a menu. I cut these as vinyl stickers and small counter tags, sized for a register, a door, or a table.</p>
-  <p>The designs below are mockups in my colours; yours get made in yours, with your logo. Every one has the tag sealed behind the vinyl, and the link behind it changes free, same as the cards.</p>
-  <p>One tap can also offer several links at once: it opens <a href="../t/demo">a small page with just your buttons</a>, your reviews, your Instagram, your menu, hosted here and changed free.</p>
+  <h1>Products</h1>
 
-  <h2>Guest wifi</h2>
-  <img class="mock" src="../designs/wifi.svg" alt="Mockup of a round indigo sticker, 60mm, with a wifi symbol and the words tap for wifi" width="240" height="240" loading="lazy">
-  <p>A round sticker by the till or on the router. A customer taps and gets your guest network without anyone spelling the password across the counter. One honest note: Androids join straight from the tap, while iPhones open a small page showing the network and password with a copy button, one extra tap. Both beat reading it off a chalkboard.</p>
+  <h2 id="cards">Cards</h2>
+  <p>Six materials, engraved, pressed, or sewn, each with the tap sealed inside. <a href="../">All of them, with prices, on the front page.</a></p>
 
-  <h2>Google reviews</h2>
-  <img class="mock" src="../designs/review.svg" alt="Mockup of an indigo counter tag, 76 by 50mm, with five stars and the words tap to leave us a review" width="304" height="200" loading="lazy">
-  <p>A tag for the counter, for the moment someone says thanks on their way out. The tap lands on the leave-a-review box for your Google listing, not the search page, so the customer types their twenty seconds of praise while it is still warm. Reviews move a local listing more than anything else on this site.</p>
+  <h2 id="stickers">Stickers</h2>
+  <p>The same tap, cut as vinyl stickers and counter tags. Mockups shown; yours get your colours and your logo.</p>
 
-  <h2>Directions</h2>
-  <img class="mock" src="../designs/directions.svg" alt="Mockup of a round cream sticker, 60mm, with a map pin and the words tap for directions" width="240" height="240" loading="lazy">
-  <p>For a window, a flyer, or the bottom of an invoice. The tap opens your pin in Google Maps with the directions button ready. Good for shops that are hard to explain over the phone.</p>
+  <h3>Wifi</h3>
+  <img class="mock" src="../designs/wifi.svg" alt="Round sticker mockup reading tap for wifi" width="240" height="240" loading="lazy">
+  <p>Tap, and the phone joins your guest wifi. No password read across the counter.</p>
 
-  <h2>Instagram</h2>
-  <img class="mock" src="../designs/follow.svg" alt="Mockup of a cream counter tag, 76 by 50mm, with a camera glyph, a placeholder handle, and the words tap to follow" width="304" height="200" loading="lazy">
-  <p>A counter tag with your handle on it. The tap opens your profile with the follow button sitting right there; nobody has to type an at-sign on a wet countertop.</p>
+  <h3>Google reviews</h3>
+  <img class="mock" src="../designs/review.svg" alt="Counter tag mockup with five stars reading tap to leave us a review" width="304" height="200" loading="lazy">
+  <p>Tap to leave a review. It opens the review box itself, while the customer is still happy.</p>
 
-  <h2>Menus</h2>
-  <img class="mock" src="../designs/menu.svg" alt="Mockup of an indigo table tag, 76 by 50mm, reading tap for the menu, no app, nothing to install" width="304" height="200" loading="lazy">
-  <p>On the table or taped inside the door glass. The tap opens whatever menu is true today. When the menu changes, the tag does not; I re-point the link and every sticker follows.</p>
+  <h3>Directions</h3>
+  <img class="mock" src="../designs/directions.svg" alt="Round sticker mockup with a map pin reading tap for directions" width="240" height="240" loading="lazy">
+  <p>Tap for directions. Your pin opens in Maps, ready to go.</p>
 
-  <!-- TODO: set real sticker and tag prices before quoting from this page -->
-  <p>These are cut and priced per job, and most cost less than any of the cards. If you already have cards from me, the sticker points wherever we set it, no new setup.</p>
+  <h3>Instagram</h3>
+  <img class="mock" src="../designs/follow.svg" alt="Counter tag mockup with a camera glyph reading tap to follow" width="304" height="200" loading="lazy">
+  <p>Tap to follow. The profile opens with the button right there.</p>
 
-  <p>The chip does not mind weather. A sticker on a door tapped through a Markham winter reads the same in April.</p>
+  <h3>Menus</h3>
+  <img class="mock" src="../designs/menu.svg" alt="Table tag mockup reading tap for the menu" width="304" height="200" loading="lazy">
+  <p>Tap for the menu, today's version. When it changes, I re-point the link free.</p>
 
-  <p class="actions"><a class="btn" href="../order">How to order</a> <a class="btn btn--ghost" href="../how-it-works">How the tap works</a></p>
+  <p>One tap can also open several links at once, <a href="../t/demo">like this</a>. More gets added here as I make it.</p>
+
+  <p class="actions"><a class="btn" href="../order">How to order</a></p>
 </div>
 </main>
 

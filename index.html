@@ -170,9 +170,30 @@ body::before {
   align-items: center;
   margin-inline: auto;
   max-width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
 }
+
+/* the products dropdown: pure css, opens on hover or keyboard focus */
+.nav-item { position: relative; }
+
+.nav-item > .drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  min-width: 8.5rem;
+  background: var(--band);
+  background-image: var(--twill);
+  border: 1px solid rgba(242, 238, 228, .2);
+  border-top: 0;
+  padding: .25rem 0;
+}
+
+.nav-item:hover > .drop,
+.nav-item:focus-within > .drop { display: flex; }
+
+.drop a { text-align: center; padding: .5rem 1rem; }
 
 .site-head nav::-webkit-scrollbar { display: none; }
 
@@ -182,8 +203,9 @@ body::before {
   .mark-name { display: none; }
   .mark-kanji { font-size: 2.7rem; }
   .site-head .wrap { gap: .625rem; }
-  .site-head nav { font-size: .875rem; font-weight: 500; gap: 0 .625rem; }
+  .site-head nav { font-size: .875rem; font-weight: 500; gap: 0 .625rem; overflow-x: auto; }
   .site-head nav a { padding-left: .0625rem; padding-right: .0625rem; }
+  .nav-item > .drop { display: none !important; }
 }
 
 .site-head nav a {
@@ -740,7 +762,13 @@ td:last-child, th:last-child { padding-right: 0; }
 <header class="site-head"><div class="wrap">
   <a class="mark" href="./"><span class="mark-kanji" lang="ja">名刺</span><span class="mark-name">meishi</span></a>
   <nav aria-label="Site">
-    <a href="uses">Stickers</a>
+    <div class="nav-item">
+      <a href="uses">Products</a>
+      <div class="drop">
+        <a href="./">Cards</a>
+        <a href="uses">Stickers</a>
+      </div>
+    </div>
     <a href="samples">Samples</a>
     <a href="order">Order</a>
   </nav>
