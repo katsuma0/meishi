@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
-<title>Samples and photos | meishi</title>
-<meta name="description" content="Photos of the five NFC card materials: metal, selvedge denim, wood, fabric, and card stock. Real shots as they get taken.">
+<title>Samples and finished work | meishi</title>
+<meta name="description" content="Photos of the five card materials and finished jobs, as they happen. No fake shots, no fake clients. Markham, Ontario.">
 <link rel="canonical" href="https://meishi.shop/samples">
 <style>
 /* meishi.shop
@@ -15,7 +15,7 @@
    Indigo bands top and bottom hem every page the way the denim is hemmed. */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   --indigo: #22304a;   /* raw denim, dark */
   --cotton: #f2eee4;   /* unbleached cotton, light */
@@ -39,15 +39,6 @@
 
   /* faint diagonal weave for the indigo bands, the twill in the denim */
   --twill: repeating-linear-gradient(45deg, rgba(242, 238, 228, .045) 0 1px, transparent 1px 5px);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141a28;
-    --ink: #eee9dc;
-    --band: #1a2336;
-    --accent: #c4685c; /* the same thread under lamplight */
-  }
 }
 
 * { box-sizing: border-box; }
@@ -222,22 +213,6 @@ h1, h2, h3 {
 h1 { font-size: clamp(2.25rem, 9vw, 3rem); position: relative; z-index: 0; }
 h2 { font-size: 1.3125rem; margin-top: 2.5rem; }
 h3 { font-size: 1.0625rem; margin-top: 1.75rem; }
-
-/* the material's kanji, ghosted behind the page title like a maker's stamp */
-.h1-kanji {
-  position: absolute;
-  right: -.5rem;
-  top: -.75rem;
-  font-size: clamp(6.5rem, 26vw, 10rem);
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: 0;
-  color: #e2dccb;
-  color: color-mix(in srgb, var(--ink) 11%, var(--bg));
-  z-index: -1;
-  pointer-events: none;
-  user-select: none;
-}
 
 p, ul, ol { margin: 0 0 1rem; }
 
@@ -511,31 +486,6 @@ td:last-child, th:last-child { padding-right: 0; }
   margin: 0 0 .75rem;
 }
 
-/* the tag writer form, /write */
-
-.field label {
-  display: block;
-  font-family: var(--display);
-  font-weight: 600;
-  margin-bottom: .375rem;
-}
-
-.field input {
-  width: 100%;
-  font: inherit;
-  color: var(--ink);
-  background: transparent;
-  border: 2px solid var(--ink);
-  border-radius: 0;
-  padding: .625rem .75rem;
-}
-
-#writestatus:not(:empty),
-#readout:not(:empty) {
-  border-left: 3px solid var(--ink);
-  padding: .375rem 0 .375rem .75rem;
-}
-
 /* long-form reading, /story */
 
 .prose { max-width: 62ch; }
@@ -689,7 +639,7 @@ td:last-child, th:last-child { padding-right: 0; }
 }
 </style>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Samples and photos">
+<meta property="og:title" content="Samples and finished work">
 <meta property="og:description" content="Photos of the five card materials as they get taken.">
 <meta property="og:url" content="https://meishi.shop/samples">
 <meta property="og:type" content="website">
@@ -705,9 +655,9 @@ td:last-child, th:last-child { padding-right: 0; }
   <a class="mark" href="../"><span class="mark-kanji" lang="ja">名刺</span><span class="mark-name">meishi</span></a>
   <nav aria-label="Site">
     <a href="../cards">Cards</a>
-    <a href="../websites">Websites</a>
-    <a href="../how-it-works">How it works</a>
-    <a href="../write">Tag writer</a>
+    <a href="../samples">Samples</a>
+    <a href="../uses">Stickers</a>
+    <a href="../story">Story</a>
     <a href="../order">Order</a>
   </nav>
 </div></header>
@@ -716,6 +666,8 @@ td:last-child, th:last-child { padding-right: 0; }
 <div class="wrap">
   <h1>Samples</h1>
   <p class="lede">Photos of the real cards go here as they get taken. Grey blocks in the meantime; I would rather show you nothing than a rendering.</p>
+  <p>Finished jobs land here too, with the real shop, the real town, and a link to the live site. No client work to show yet; this page fills in as jobs finish.</p>
+  <!-- TODO: real client jobs go here as they finish. No fake testimonials, ever. -->
 
   <!-- TODO: shot list, replace each block with the real photo at the same aspect ratio:
        1. All five cards fanned in the tin
@@ -738,15 +690,8 @@ td:last-child, th:last-child { padding-right: 0; }
 </main>
 
 <footer class="site-foot"><div class="wrap">
-  <nav aria-label="More pages">
-    <a href="../uses">Other uses</a>
-    <a href="../work">Work</a>
-    <a href="../samples">Samples</a>
-    <a href="../story">Story</a>
-  </nav>
   <p>Katsuma Onishi, Markham, Ontario.</p>
-  <p><a href="mailto:katsuma@meishi.shop">katsuma@meishi.shop</a> · <a href="tel:+19050000000">(905) 000-0000</a></p>
-  <!-- TODO: replace placeholder phone number with the real one before launch -->
+  <p><a href="mailto:katsuma@meishi.shop">katsuma@meishi.shop</a> · <a href="tel:+16475254859">(647) 525-4859</a></p>
   <p>All prices in Canadian dollars, plus HST. Cash or e-transfer.</p>
 </div></footer>
 </body>

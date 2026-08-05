@@ -3,9 +3,7 @@
 Static site for meishi.shop. NFC business cards in six materials and small
 business websites, Markham, Ontario.
 
-Plain HTML and CSS. No build step, no npm. The only JavaScript on the
-site is one small inline script on `/write` that talks to the phone's NFC
-radio through Web NFC; every other page ships none. `style.css` is
+Plain HTML and CSS. No build step, no npm, no JavaScript. `style.css` is
 the single source of truth for styles, and every page carries a copy
 inlined in a `<style>` block so the first paint needs no second request;
 after editing `style.css`, run `python3 tools/inline-css.py` and commit
@@ -63,11 +61,9 @@ mistyped card link.
 
 ## Before launch
 
-- Replace the placeholder phone number `(905) 000-0000` in every footer and
-  on `/order` (search for `19050000000`).
 - Real photos: search the pages for `TODO` to find each shot.
 - `/story` is placeholder text until Katsuma writes it.
-- `/work` ships honestly empty until real client jobs exist.
+- `/samples` ships honestly empty until real photos and jobs exist.
 
 ## Rules
 
