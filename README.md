@@ -12,11 +12,11 @@ duplication costs less than a toolchain here.
 
 ## Card URLs
 
-These five paths are encoded onto physical cards and can never change, not
+These six paths are encoded onto physical cards and can never change, not
 even to a redirect:
 
 ```
-/metal  /wood  /paper  /fabric  /selvedge
+/metal  /wood  /paper  /fabric  /selvedge  /embossed
 ```
 
 Each is a directory with an `index.html`, so `/metal` and `/metal/` both
@@ -50,7 +50,7 @@ cards WITHOUT the trailing slash (`meishi.shop/metal`), which always
 returns 200 with no redirect. Verify all six after the first deploy:
 
 ```
-for p in metal wood paper fabric selvedge; do
+for p in metal wood paper fabric selvedge embossed; do
   curl -s -o /dev/null -w "%{http_code} /$p\n" https://meishi.shop/$p
 done
 ```
