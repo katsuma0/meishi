@@ -653,7 +653,7 @@ td:last-child, th:last-child { padding-right: 0; }
 /* the front page: two mosaics, cards then stickers, each one link to its
    product page. fr-only tracks, so vertical and horizontal cards tile
    together exactly at any width. */
-.shop--portal { gap: 2.75rem; }
+.shop--portal { gap: 3.5rem; }
 
 .portal { display: block; text-decoration: none; }
 
@@ -692,6 +692,14 @@ td:last-child, th:last-child { padding-right: 0; }
   font-size: .9375rem;
   color: #67707f;
   color: color-mix(in srgb, var(--ink) 65%, var(--bg));
+}
+
+/* the quiet footnote under the front page, for the ones who wonder */
+.home-note {
+  text-align: center;
+  margin-top: 3rem;
+  color: #67707f;
+  color: color-mix(in srgb, var(--ink) 55%, var(--bg));
 }
 
 .shop li { animation: settle .5s ease-out backwards; }
