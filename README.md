@@ -59,6 +59,16 @@ Every line must read 200. The 404 page (`404.html`) is picked up by Pages
 automatically and lists the six card URLs, since the most likely 404 is a
 mistyped card link.
 
+## Tap pages
+
+Some customers want one tap to offer several links: reviews, Instagram,
+menu, website. Those get a small page under `/t/`, a link tree with
+nothing on it but their buttons and the meishi mark. To make one, copy
+`t/demo/` to `t/<shopname>/`, change the title, the heading, and the
+button links, commit, and push. The card then gets encoded to
+`meishi.shop/t/<shopname>`. These pages are noindexed on purpose; they
+are for taps, not for search.
+
 ## Before launch
 
 - Real photos: search the pages for `TODO` to find each shot.
