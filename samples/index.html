@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
 <title>Samples and finished work | meishi</title>
-<meta name="description" content="Photos of the five card materials and finished jobs, as they happen. No fake shots, no fake clients. Markham, Ontario.">
+<meta name="description" content="Photos of the six card materials and finished jobs, as they happen. No fake shots, no fake clients. Markham, Ontario.">
 <link rel="canonical" href="https://meishi.shop/samples">
 <style>
 /* meishi.shop
@@ -443,7 +443,18 @@ td:last-child, th:last-child { padding-right: 0; }
 .grid .photo { margin: 0; }
 
 /* the tap, demonstrated: a dot with a ring that keeps reaching out.
-   the one moving thing on the site that repeats, and it is the product. */
+   the one moving thing on the site that repeats, and it is the product.
+   in the hero it is drawn in cotton and links to the how-it-works page. */
+
+.hero .tap {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: .5rem 0 0;
+}
+
+.hero .tap::before { background: var(--cotton); }
+.hero .tap::after { border-color: var(--cotton); }
 
 .tap {
   position: relative;
@@ -555,6 +566,20 @@ td:last-child, th:last-child { padding-right: 0; }
     transparent 22.5px); /* the copper coil, showing through the paper */
 }
 
+.tile--embossed {
+  position: relative;
+  background: #f7f4ec;
+}
+
+/* a blind-embossed panel, drawn as relief */
+.tile--embossed::after {
+  content: "";
+  position: absolute;
+  inset: 22% 26%;
+  border: 2px solid #ded8c8;
+  border-color: color-mix(in srgb, var(--ink) 13%, var(--bg));
+}
+
 .shop-row {
   display: flex;
   justify-content: space-between;
@@ -640,7 +665,7 @@ td:last-child, th:last-child { padding-right: 0; }
 </style>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Samples and finished work">
-<meta property="og:description" content="Photos of the five card materials as they get taken.">
+<meta property="og:description" content="Photos of the six card materials as they get taken.">
 <meta property="og:url" content="https://meishi.shop/samples">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="meishi">
@@ -670,14 +695,14 @@ td:last-child, th:last-child { padding-right: 0; }
   <!-- TODO: real client jobs go here as they finish. No fake testimonials, ever. -->
 
   <!-- TODO: shot list, replace each block with the real photo at the same aspect ratio:
-       1. All five cards fanned in the tin
+       1. All six cards fanned in the tin
        2. Selvedge card edge-on showing thickness and the red line
        3. Sashiko stitching close enough to see individual stitches
        4. A phone mid-tap
        5. Wood card next to metal for scale
        6. A stack of card stock cards in a holder on a counter -->
   <div class="grid">
-    <div class="photo photo--wide" style="grid-column: 1 / -1" role="img" aria-label="Photo coming: all five cards fanned in the tin">All five in the tin</div>
+    <div class="photo photo--wide" style="grid-column: 1 / -1" role="img" aria-label="Photo coming: all six cards fanned in the tin">All six in the tin</div>
     <div class="photo photo--square" role="img" aria-label="Photo coming: the selvedge card edge-on, thickness and red line visible">Selvedge, edge-on</div>
     <div class="photo photo--square" role="img" aria-label="Photo coming: sashiko stitching close up">Sashiko, close</div>
     <div class="photo photo--square" role="img" aria-label="Photo coming: a phone mid-tap on a card">A phone mid-tap</div>
@@ -685,7 +710,7 @@ td:last-child, th:last-child { padding-right: 0; }
     <div class="photo photo--wide" style="grid-column: 1 / -1" role="img" aria-label="Photo coming: a stack of card stock cards in a holder on a counter">Card stock by the register</div>
   </div>
 
-  <p style="margin-top:1.5rem"><a href="../cards">The five cards and prices</a> · <a href="../order">How to order</a></p>
+  <p style="margin-top:1.5rem"><a href="../cards">The six cards and prices</a> · <a href="../order">How to order</a></p>
 </div>
 </main>
 

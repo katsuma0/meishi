@@ -443,7 +443,18 @@ td:last-child, th:last-child { padding-right: 0; }
 .grid .photo { margin: 0; }
 
 /* the tap, demonstrated: a dot with a ring that keeps reaching out.
-   the one moving thing on the site that repeats, and it is the product. */
+   the one moving thing on the site that repeats, and it is the product.
+   in the hero it is drawn in cotton and links to the how-it-works page. */
+
+.hero .tap {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: .5rem 0 0;
+}
+
+.hero .tap::before { background: var(--cotton); }
+.hero .tap::after { border-color: var(--cotton); }
 
 .tap {
   position: relative;
@@ -553,6 +564,20 @@ td:last-child, th:last-child { padding-right: 0; }
     transparent 11px, var(--ply) 11px 12.5px, transparent 12.5px 16px,
     var(--ply) 16px 17.5px, transparent 17.5px 21px, var(--ply) 21px 22.5px,
     transparent 22.5px); /* the copper coil, showing through the paper */
+}
+
+.tile--embossed {
+  position: relative;
+  background: #f7f4ec;
+}
+
+/* a blind-embossed panel, drawn as relief */
+.tile--embossed::after {
+  content: "";
+  position: absolute;
+  inset: 22% 26%;
+  border: 2px solid #ded8c8;
+  border-color: color-mix(in srgb, var(--ink) 13%, var(--bg));
 }
 
 .shop-row {

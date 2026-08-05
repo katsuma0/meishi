@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
-<title>The five cards compared, full price list | meishi</title>
-<meta name="description" content="Metal, selvedge denim, wood, fabric, and card stock NFC business cards. Every single and bulk price on one page. Markham, Ontario.">
+<title>The six cards compared, full price list | meishi</title>
+<meta name="description" content="Metal, selvedge denim, wood, fabric, card stock, and embossed NFC cards. Every single and bulk price on one page. Markham, Ontario.">
 <link rel="canonical" href="https://meishi.shop/cards">
 <style>
 /* meishi.shop
@@ -443,7 +443,18 @@ td:last-child, th:last-child { padding-right: 0; }
 .grid .photo { margin: 0; }
 
 /* the tap, demonstrated: a dot with a ring that keeps reaching out.
-   the one moving thing on the site that repeats, and it is the product. */
+   the one moving thing on the site that repeats, and it is the product.
+   in the hero it is drawn in cotton and links to the how-it-works page. */
+
+.hero .tap {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: .5rem 0 0;
+}
+
+.hero .tap::before { background: var(--cotton); }
+.hero .tap::after { border-color: var(--cotton); }
 
 .tap {
   position: relative;
@@ -555,6 +566,20 @@ td:last-child, th:last-child { padding-right: 0; }
     transparent 22.5px); /* the copper coil, showing through the paper */
 }
 
+.tile--embossed {
+  position: relative;
+  background: #f7f4ec;
+}
+
+/* a blind-embossed panel, drawn as relief */
+.tile--embossed::after {
+  content: "";
+  position: absolute;
+  inset: 22% 26%;
+  border: 2px solid #ded8c8;
+  border-color: color-mix(in srgb, var(--ink) 13%, var(--bg));
+}
+
 .shop-row {
   display: flex;
   justify-content: space-between;
@@ -639,8 +664,8 @@ td:last-child, th:last-child { padding-right: 0; }
 }
 </style>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="The five NFC cards compared">
-<meta property="og:description" content="Metal, selvedge denim, wood, fabric, and card stock, every single and bulk price on one page.">
+<meta property="og:title" content="The six NFC cards compared">
+<meta property="og:description" content="Metal, selvedge denim, wood, fabric, card stock, and embossed, every single and bulk price on one page.">
 <meta property="og:url" content="https://meishi.shop/cards">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="meishi">
@@ -664,7 +689,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <main id="main">
 <div class="wrap">
-  <h1>The five cards</h1>
+  <h1>The six cards</h1>
   <p class="lede">Every price on this page. All in Canadian dollars, plus HST, made to order, two weeks from artwork approval. The link inside any card can be changed later at no cost.</p>
 
   <h2>Prices</h2>
@@ -701,6 +726,11 @@ td:last-child, th:last-child { padding-right: 0; }
         <th scope="row"><a href="../paper">Card stock</a></th>
         <td class="num" data-label="Single">$3.00</td>
         <td class="num" data-label="Bulk">$1.50</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="../embossed">Embossed</a></th>
+        <td class="num" data-label="Single">$5.00</td>
+        <td class="num" data-label="Bulk">$3.00</td>
       </tr>
     </tbody>
   </table>
