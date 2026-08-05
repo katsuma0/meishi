@@ -24,34 +24,30 @@ resolve with no `.html` extension.
 
 ## Deploy, step by step
 
-Cloudflare Pages, connected to this repo.
+GitHub Pages, straight from this repo. This is what is live now.
 
-1. Cloudflare dashboard, Workers and Pages, Create, Pages, Connect to Git.
-   Pick this repo, production branch `main`.
-2. Build settings: framework preset None, build command empty, build output
-   directory `/`. Save and deploy.
-3. Custom domains tab: add `meishi.shop`. If the domain's DNS is already on
-   Cloudflare, Pages adds the record itself; otherwise it will ask to create
-   a `CNAME` for `meishi.shop` pointing at `<project>.pages.dev` (Cloudflare
-   flattens the CNAME at the apex automatically). Add `www.meishi.shop` as a
-   second custom domain the same way.
-4. SSL/TLS settings for the zone: set mode to Full (strict). Pages serves a
-   real certificate, so strict costs nothing and stops anyone downgrading
-   the hop between Cloudflare and the origin.
-5. Redirect `www` to the apex: Rules, Redirect Rules, create one rule,
-   when hostname equals `www.meishi.shop`, 301 to
-   `https://meishi.shop$1` with the path preserved. One hop, no chain.
-6. Cache headers ship in the `_headers` file in this repo; nothing to
-   configure in the dashboard.
+1. Repo Settings, Pages: build from the `main` branch, root folder. The
+   `CNAME` file in the repo root holds the custom domain (`meishi.shop`).
+2. DNS at the registrar (GoDaddy): four `A` records on `@` pointing at
+   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
+   `185.199.111.153`, and a `CNAME` record on `www` pointing at
+   `katsuma0.github.io`.
+3. Once the Pages settings page shows the DNS check green, tick
+   Enforce HTTPS.
+4. Every merge to `main` deploys itself; the pages build runs in about a
+   minute.
 
-Trailing slashes: Pages serves `dir/index.html` at `/dir` and 308-redirects
-`/dir/` to `/dir`. The six card URLs are therefore encoded on the physical
-cards WITHOUT the trailing slash (`meishi.shop/metal`), which always
-returns 200 with no redirect. Verify all six after the first deploy:
+The `_headers` file is inert on GitHub Pages; it is kept in case the site
+ever moves to a host that reads it (Cloudflare Pages does).
+
+Trailing slashes: GitHub Pages serves `dir/index.html` at `/dir/` and
+301-redirects `/dir` to `/dir/`. Phones follow that redirect instantly
+when a card is tapped, so cards are encoded `meishi.shop/metal` and work
+either way. Verify all six after a deploy:
 
 ```
 for p in metal wood paper fabric selvedge embossed; do
-  curl -s -o /dev/null -w "%{http_code} /$p\n" https://meishi.shop/$p
+  curl -sL -o /dev/null -w "%{http_code} /$p\n" https://meishi.shop/$p
 done
 ```
 
@@ -63,11 +59,12 @@ mistyped card link.
 
 Some customers want one tap to offer several links: reviews, Instagram,
 menu, website. Those get a small page under `/t/`, a link tree with
-nothing on it but their buttons and the meishi mark. To make one, copy
-`t/demo/` to `t/<shopname>/`, change the title, the heading, and the
-button links, commit, and push. The card then gets encoded to
-`meishi.shop/t/<shopname>`. These pages are noindexed on purpose; they
-are for taps, not for search.
+nothing on it but their buttons and the meishi mark. `t/demo/` is
+meishi's own hub (instagram, website, google); to make one for a shop,
+copy `t/demo/` to `t/<shopname>/`, swap the logo for their name, change
+the title and the button links, commit, and push. The card then gets
+encoded to `meishi.shop/t/<shopname>`. These pages are noindexed on
+purpose; they are for taps, not for search.
 
 ## Before launch
 
