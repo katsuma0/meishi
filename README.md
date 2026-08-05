@@ -55,16 +55,39 @@ Every line must read 200. The 404 page (`404.html`) is picked up by Pages
 automatically and lists the six card URLs, since the most likely 404 is a
 mistyped card link.
 
-## Tap pages
+## Link pages
 
-Some customers want one tap to offer several links: reviews, Instagram,
-menu, website. Those get a small page under `/t/`, a link tree with
-nothing on it but their buttons and the meishi mark. `t/demo/` is
-meishi's own hub (instagram, website, google); to make one for a shop,
-copy `t/demo/` to `t/<shopname>/`, swap the logo for their name, change
-the title and the button links, commit, and push. The card then gets
-encoded to `meishi.shop/t/<shopname>`. These pages are noindexed on
-purpose; they are for taps, not for search.
+One tap can open a whole page of links: reviews, Instagram, menu, maps.
+These are sold as a product ("link pages" on /products) and are built to
+live at meishi.world under the customer's name once that domain is wired
+up (separate repo, CNAME meishi.world, same GitHub Pages setup as this
+one). Until then they live here:
+
+- `/katsuma` is the official example, Katsuma's own page.
+- `t/demo/` is the template. To make a customer's page, copy `t/demo/`
+  to `t/<shopname>/` (or a top-level `/<name>/` for the meishi.world
+  style), change the title, the h1, the logo if they have one, and the
+  button links, then commit and push. Encode the card to that URL.
+- These pages are noindexed on purpose; they are for taps, not search.
+
+## Prices
+
+Canonical, bare numbers, singles only: metal 40, wood 35, fabric 20,
+embossed 20, cardstock 3, selvedge unpriced (stitched to order).
+Stickers 5 to 8 (chip-size 5, bigger pieces and counter tags 8, matte).
+Wholesale: half of retail, $200 opening order, Ontario and other
+provinces by Canada Post.
+
+## House rules for copy and design
+
+- Every visible word renders lowercase (CSS transform, the house quirk).
+- Never "NFC" or "free" in visible copy; the chip is "a microchip with
+  an antenna". Titles and meta may say nfc for search.
+- No em dashes. Plain declarative voice. Buttons say what happens.
+- The product is called meishi, not cards, in nav and product context.
+- The red selvedge line and denim twill texture appear only on
+  /selvedge/. Everywhere else is flat matte.
+- Light and dark mode both work; dark follows the device setting.
 
 ## Before launch
 
