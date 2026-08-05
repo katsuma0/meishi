@@ -72,7 +72,6 @@ are for taps, not for search.
 ## Before launch
 
 - Real photos: search the pages for `TODO` to find each shot.
-- `/story` is placeholder text until Katsuma writes it.
 - `/samples` ships honestly empty until real photos and jobs exist.
 
 ## Rules
