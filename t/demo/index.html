@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#22304a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="meishi">
+<meta name="robots" content="noindex">
+<title>Sample Shop</title>
+<meta name="description" content="Tap page for Sample Shop, set up by meishi.">
+<style>
+/* a meishi tap page: the shop's buttons and nothing else.
+   to make a real one, copy this folder to t/<shopname>/, change the
+   title, the h1, and the button links, then commit and push. */
+:root {
+  color-scheme: light;
+  --indigo: #22304a;
+  --cotton: #f2eee4;
+  --selvedge: #a13d36;
+  --display: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--cotton); }
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2.5rem 1.25rem;
+  font-family: var(--display);
+  color: var(--indigo);
+  background: var(--cotton);
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; bottom: 0; left: 0;
+  width: 2px;
+  background: var(--selvedge);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 7vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+.links {
+  width: min(22rem, 100%);
+  display: grid;
+  gap: .75rem;
+  margin: 0;
+}
+.links a {
+  display: block;
+  background: var(--indigo);
+  color: var(--cotton);
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  padding: 1rem;
+  transition: transform .12s cubic-bezier(.2, .7, .3, 1), background-color .15s ease;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.links a:hover { background: var(--selvedge); }
+.links a:active { transform: scale(.97); }
+.mark {
+  color: var(--indigo);
+  text-decoration: none;
+  text-align: center;
+  font-size: .8125rem;
+  letter-spacing: .12em;
+}
+.mark span { display: block; font-size: 1.375rem; font-weight: 800; letter-spacing: .06em; }
+:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+.note { font-size: .9375rem; margin: 0; text-align: center; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+  <h1>Sample Shop</h1>
+  <nav class="links" aria-label="Sample Shop links">
+    <!-- real pages: replace these hrefs and labels, add or remove buttons freely -->
+    <a href="#">Website</a>
+    <a href="#">Google reviews</a>
+    <a href="#">Instagram</a>
+    <a href="#">Menu</a>
+  </nav>
+  <p class="note">This one is a sample. Yours gets your name and your links.</p>
+  <a class="mark" href="https://meishi.shop"><span lang="ja">名刺</span>meishi</a>
+</body>
+</html>

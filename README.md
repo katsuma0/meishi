@@ -3,9 +3,7 @@
 Static site for meishi.shop. NFC business cards in six materials and small
 business websites, Markham, Ontario.
 
-Plain HTML and CSS. No build step, no npm. The only JavaScript on the
-site is one small inline script on `/write` that talks to the phone's NFC
-radio through Web NFC; every other page ships none. `style.css` is
+Plain HTML and CSS. No build step, no npm, no JavaScript. `style.css` is
 the single source of truth for styles, and every page carries a copy
 inlined in a `<style>` block so the first paint needs no second request;
 after editing `style.css`, run `python3 tools/inline-css.py` and commit
@@ -18,7 +16,7 @@ These six paths are encoded onto physical cards and can never change, not
 even to a redirect:
 
 ```
-/metal  /wood  /plastic  /paper  /fabric  /selvedge
+/metal  /wood  /paper  /fabric  /selvedge  /embossed
 ```
 
 Each is a directory with an `index.html`, so `/metal` and `/metal/` both
@@ -52,7 +50,7 @@ cards WITHOUT the trailing slash (`meishi.shop/metal`), which always
 returns 200 with no redirect. Verify all six after the first deploy:
 
 ```
-for p in metal wood plastic paper fabric selvedge; do
+for p in metal wood paper fabric selvedge embossed; do
   curl -s -o /dev/null -w "%{http_code} /$p\n" https://meishi.shop/$p
 done
 ```
@@ -61,13 +59,20 @@ Every line must read 200. The 404 page (`404.html`) is picked up by Pages
 automatically and lists the six card URLs, since the most likely 404 is a
 mistyped card link.
 
+## Tap pages
+
+Some customers want one tap to offer several links: reviews, Instagram,
+menu, website. Those get a small page under `/t/`, a link tree with
+nothing on it but their buttons and the meishi mark. To make one, copy
+`t/demo/` to `t/<shopname>/`, change the title, the heading, and the
+button links, commit, and push. The card then gets encoded to
+`meishi.shop/t/<shopname>`. These pages are noindexed on purpose; they
+are for taps, not for search.
+
 ## Before launch
 
-- Replace the placeholder phone number `(905) 000-0000` in every footer and
-  on `/order` (search for `19050000000`).
 - Real photos: search the pages for `TODO` to find each shot.
-- `/story` is placeholder text until Katsuma writes it.
-- `/work` ships honestly empty until real client jobs exist.
+- `/samples` ships honestly empty until real photos and jobs exist.
 
 ## Rules
 
