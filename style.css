@@ -623,6 +623,20 @@ td:last-child, th:last-child { padding-right: 0; }
   .design-stack .design { width: 100%; max-width: none; margin: 0; }
 }
 
+/* the sticker wall: two to a row, no captions, the sticker speaks */
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.sticker-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* long-form reading, /story */
 
 .prose { max-width: 62ch; }

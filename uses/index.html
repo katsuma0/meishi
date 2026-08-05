@@ -637,6 +637,20 @@ td:last-child, th:last-child { padding-right: 0; }
   .design-stack .design { width: 100%; max-width: none; margin: 0; }
 }
 
+/* the sticker wall: two to a row, no captions, the sticker speaks */
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.sticker-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* long-form reading, /story */
 
 .prose { max-width: 62ch; }
@@ -949,80 +963,18 @@ td:last-child, th:last-child { padding-right: 0; }
   <p class="price">5</p>
   <p class="small">Canadian dollars, plus HST, each; counter tags are 8. Every one encoded with your link and ready to stick.</p>
 
-  <h3>Wifi</h3>
-  <details class="designs">
-    <summary>
-      <img class="design design--sticker" src="../designs/stickers/wifi-round-indigo.webp" alt="Sticker mockup reading free wifi, indigo round sticker" width="720" height="720" loading="lazy">
-      <span class="designs-more" aria-hidden="true"></span>
-    </summary>
-    <div class="design-stack">
-      <img class="design design--sticker" src="../designs/stickers/wifi-round-cream.webp" alt="Sticker mockup reading free wifi, cream round sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/wifi-square-split.webp" alt="Sticker mockup reading free wifi, split square sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/wifi-tag-indigo.webp" alt="Sticker mockup reading free wifi, indigo counter tag" width="720" height="474" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/wifi-tag-cream.webp" alt="Sticker mockup reading free wifi, cream counter tag" width="720" height="474" loading="lazy">
-    </div>
-  </details>
-  <p>Tap, and the phone joins your guest wifi. No password read across the counter.</p>
-
-  <h3>Google reviews</h3>
-  <details class="designs">
-    <summary>
-      <img class="design design--sticker" src="../designs/stickers/review-round-indigo.webp" alt="Sticker mockup reading say it in stars, indigo round sticker" width="720" height="720" loading="lazy">
-      <span class="designs-more" aria-hidden="true"></span>
-    </summary>
-    <div class="design-stack">
-      <img class="design design--sticker" src="../designs/stickers/review-round-cream.webp" alt="Sticker mockup reading say it in stars, cream round sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/review-square-split.webp" alt="Sticker mockup reading say it in stars, split square sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/review-tag-indigo.webp" alt="Sticker mockup reading say it in stars, indigo counter tag" width="720" height="474" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/review-tag-cream.webp" alt="Sticker mockup reading say it in stars, cream counter tag" width="720" height="474" loading="lazy">
-    </div>
-  </details>
-  <p>Tap to leave a review. It opens the review box itself, while the customer is still happy.</p>
-
-  <h3>Directions</h3>
-  <details class="designs">
-    <summary>
-      <img class="design design--sticker" src="../designs/stickers/directions-round-indigo.webp" alt="Sticker mockup for directions, indigo round sticker" width="720" height="720" loading="lazy">
-      <span class="designs-more" aria-hidden="true"></span>
-    </summary>
-    <div class="design-stack">
-      <img class="design design--sticker" src="../designs/stickers/directions-round-cream.webp" alt="Sticker mockup for directions, cream round sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/directions-square-split.webp" alt="Sticker mockup for directions, split square sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/directions-tag-indigo.webp" alt="Sticker mockup for directions, indigo counter tag" width="720" height="474" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/directions-tag-cream.webp" alt="Sticker mockup for directions, cream counter tag" width="720" height="474" loading="lazy">
-    </div>
-  </details>
-  <p>Tap for directions. Your pin opens in Maps, ready to go.</p>
-
-  <h3>Instagram</h3>
-  <details class="designs">
-    <summary>
-      <img class="design design--sticker" src="../designs/stickers/instagram-round-indigo.webp" alt="Sticker mockup for Instagram, indigo round sticker" width="720" height="720" loading="lazy">
-      <span class="designs-more" aria-hidden="true"></span>
-    </summary>
-    <div class="design-stack">
-      <img class="design design--sticker" src="../designs/stickers/instagram-round-cream.webp" alt="Sticker mockup for Instagram, cream round sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/instagram-square-split.webp" alt="Sticker mockup for Instagram, split square sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/instagram-tag-indigo.webp" alt="Sticker mockup for Instagram, indigo counter tag" width="720" height="474" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/instagram-tag-cream.webp" alt="Sticker mockup for Instagram, cream counter tag" width="720" height="474" loading="lazy">
-    </div>
-  </details>
-  <p>Tap to follow. The profile opens with the button right there.</p>
-
-  <h3>Menus</h3>
-  <details class="designs">
-    <summary>
-      <img class="design design--sticker" src="../designs/stickers/menu-round-indigo.webp" alt="Sticker mockup reading today's menu, indigo round sticker" width="720" height="720" loading="lazy">
-      <span class="designs-more" aria-hidden="true"></span>
-    </summary>
-    <div class="design-stack">
-      <img class="design design--sticker" src="../designs/stickers/menu-round-cream.webp" alt="Sticker mockup reading today's menu, cream round sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/menu-square-split.webp" alt="Sticker mockup reading today's menu, split square sticker" width="720" height="720" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/menu-tag-indigo.webp" alt="Sticker mockup reading today's menu, indigo counter tag" width="720" height="474" loading="lazy">
-      <img class="design design--sticker" src="../designs/stickers/menu-tag-cream.webp" alt="Sticker mockup reading today's menu, cream counter tag" width="720" height="474" loading="lazy">
-    </div>
-  </details>
-  <p>Tap for the menu, today's version. When it changes, I re-point the link free.</p>
+  <div class="sticker-grid">
+    <img src="../designs/stickers/wifi-round-indigo.webp" alt="Round sticker: free wifi, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/review-round-indigo.webp" alt="Round sticker: say it in stars, leave a review, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/menu-round-indigo.webp" alt="Round sticker: today's menu, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/instagram-round-indigo.webp" alt="Round sticker: follow on instagram, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/directions-round-indigo.webp" alt="Round sticker: tap for directions, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/youtube-round-indigo.webp" alt="Round sticker: press play, watch on youtube, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/tiktok-round-indigo.webp" alt="Round sticker: follow along on tiktok, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/booking-round-indigo.webp" alt="Round sticker: book a spot, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/order-round-indigo.webp" alt="Round sticker: skip the line, order online, hold phone here" width="720" height="720" loading="lazy">
+    <img src="../designs/stickers/contact-round-indigo.webp" alt="Round sticker: save our number, hold phone here" width="720" height="720" loading="lazy">
+  </div>
 
   <p>One tap can also open several links at once, <a href="../t/demo">like this</a>. More gets added here as I make it.</p>
 
