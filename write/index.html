@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
-<title>Page not found | meishi</title>
-<meta name="description" content="That page is not here. The cards and prices are.">
+<title>NFC tag writer | meishi</title>
+<meta name="description" content="Write a link onto a blank NFC tag straight from this page, no app. Works in Chrome on Android with NFC on. The tool used at the counter.">
+<link rel="canonical" href="https://meishi.shop/write">
 <style>
 /* meishi.shop
    Five colours, two faces, one red line.
@@ -610,7 +611,15 @@ td:last-child, th:last-child { padding-right: 0; }
 }
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta name="robots" content="noindex">
+<meta property="og:title" content="NFC tag writer">
+<meta property="og:description" content="Write a link onto a blank NFC tag straight from the browser. Chrome on Android, NFC on, no app.">
+<meta property="og:url" content="https://meishi.shop/write">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="meishi">
+<meta property="og:image" content="https://meishi.shop/og/meishi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -626,9 +635,34 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <main id="main">
 <div class="wrap">
-  <h1>Not here</h1>
-  <p class="lede">That page does not exist. The six card links never change, so if a card brought you here, tell me and I will fix it the same day.</p>
-  <p><a href="/">Home</a> · <a href="/cards">Cards and prices</a> · <a href="/order">How to order</a></p>
+  <h1>Tag writer <span class="h1-kanji" lang="ja" aria-hidden="true">書</span></h1>
+  <p class="lede">This page writes a link onto a blank NFC tag, using nothing but the phone in your hand. It is the tool I use at your counter: you pick the link, the tag touches the phone, and two seconds later the card knows where to go.</p>
+
+  <p id="support">Checking whether this phone can write tags.</p>
+  <noscript><p>The writer is the one thing on this site that needs JavaScript, and it is off in this browser. Every other page here works without it.</p></noscript>
+  <p class="small">Writing works in Chrome on an Android phone with NFC switched on. iPhones read tags all day, but Apple does not let a website write one; on an iPhone I use a small app called NFC Tools instead.</p>
+
+  <h2>Write a link</h2>
+  <form id="writeform">
+    <p class="field">
+      <label for="url">The full link, including https://</label>
+      <input type="url" id="url" name="url" required placeholder="https://maps.app.goo.gl/..." inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false">
+    </p>
+    <p class="actions"><button class="btn" type="submit">Write the tag</button></p>
+    <p id="writestatus" role="status" aria-live="polite"></p>
+  </form>
+
+  <h2>Check a tag</h2>
+  <p>Reads whatever is on a tag without changing it. Good for confirming a card before it leaves the table.</p>
+  <p class="actions"><button class="btn btn--ghost" type="button" id="readbtn">Read a tag</button></p>
+  <p id="readout" role="status" aria-live="polite"></p>
+
+  <h2>What to know before writing</h2>
+  <p>Writing replaces whatever link was on the tag before; it does not stack. A tag can be rewritten thousands of times unless it has been locked, and I do not lock the tags I sell, which is exactly why your card can follow you when your number changes. Hold the tag flat against the top edge of the phone and keep it still until the page says it is done.</p>
+
+  <p>A blank NTAG213 sticker costs about forty cents. The writing takes two seconds; the sewing is the slow part.</p>
+
+  <p class="actions"><a class="btn" href="/order">How to order</a> <a class="btn btn--ghost" href="/how-it-works">How the tap works</a></p>
 </div>
 </main>
 
@@ -645,5 +679,58 @@ td:last-child, th:last-child { padding-right: 0; }
   <!-- TODO: replace placeholder phone number with the real one before launch -->
   <p>All prices in Canadian dollars, plus HST.</p>
 </div></footer>
+
+<script>
+/* the one script on the site. web nfc exists only in chromium on android,
+   so everything here feature-detects and fails into plain sentences. */
+(function () {
+  var support = document.getElementById('support');
+  var form = document.getElementById('writeform');
+  var writeStatus = document.getElementById('writestatus');
+  var readBtn = document.getElementById('readbtn');
+  var readout = document.getElementById('readout');
+
+  if (!('NDEFReader' in window)) {
+    support.textContent = 'This browser cannot write tags. Open this page in Chrome on an Android phone, with NFC on.';
+    return;
+  }
+  support.textContent = 'This phone can write tags.';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var url = document.getElementById('url').value.trim();
+    try { new URL(url); } catch (err) {
+      writeStatus.textContent = 'That is not a full link. Include the https:// part.';
+      return;
+    }
+    writeStatus.textContent = 'Hold the tag flat against the top of the phone and keep it still.';
+    var ndef = new NDEFReader();
+    ndef.write({ records: [{ recordType: 'url', data: url }] }).then(function () {
+      writeStatus.textContent = 'Written. Tap the tag to test it.';
+    }).catch(function (err) {
+      writeStatus.textContent = 'Could not write: ' + err.message + ' Check NFC is on and hold the tag still.';
+    });
+  });
+
+  readBtn.addEventListener('click', function () {
+    var ndef = new NDEFReader();
+    ndef.scan().then(function () {
+      readout.textContent = 'Scanning. Hold a tag against the top of the phone.';
+      ndef.onreading = function (ev) {
+        var dec = new TextDecoder();
+        var found = [];
+        for (var i = 0; i < ev.message.records.length; i++) {
+          var r = ev.message.records[i];
+          if (r.recordType === 'url' || r.recordType === 'text') found.push(dec.decode(r.data));
+          else found.push('(' + r.recordType + ' record)');
+        }
+        readout.textContent = found.length ? 'On this tag: ' + found.join(', ') : 'This tag is empty.';
+      };
+    }).catch(function (err) {
+      readout.textContent = 'Could not read: ' + err.message;
+    });
+  });
+})();
+</script>
 </body>
 </html>
