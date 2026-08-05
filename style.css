@@ -49,14 +49,18 @@
 
 @view-transition { navigation: auto; }
 
+/* pages swap in one frame: the old page's pixels hold until the new page
+   is ready, no fade, so nothing can flash between documents */
 ::view-transition-old(root),
-::view-transition-new(root) { animation-duration: .18s; }
+::view-transition-new(root) { animation: none; }
 
-/* the backdrop behind page snapshots during the crossfade. without this it
-   is white, and the safe-area strip above the header flashes on iPhone */
+/* the header never moves or fades between pages */
+::view-transition-group(site-head) { animation: none; }
+
+/* and if any gap ever shows behind snapshots, it is band and twill, not white */
 ::view-transition {
-  background: var(--bg);
-  background-image: linear-gradient(to bottom, var(--band) 50%, var(--bg) 50%);
+  background-color: var(--band);
+  background-image: var(--twill), linear-gradient(to bottom, var(--band) 50%, var(--bg) 50%);
 }
 
 @keyframes selvedge-draw {
