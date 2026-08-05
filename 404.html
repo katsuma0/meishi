@@ -147,7 +147,7 @@ body::before {
 .mark-kanji {
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 3rem;
   line-height: 1;
   letter-spacing: .04em;
 }
@@ -177,7 +177,7 @@ body::before {
    bar fits without sliding and nothing ever moves */
 @media (max-width: 26rem) {
   .mark-name { display: none; }
-  .mark-kanji { font-size: 2rem; }
+  .mark-kanji { font-size: 2.25rem; }
   .site-head .wrap { gap: .625rem; }
   .site-head nav { font-size: .875rem; font-weight: 500; gap: 0 .625rem; }
   .site-head nav a { padding-left: .0625rem; padding-right: .0625rem; }
@@ -286,6 +286,11 @@ a:hover {
   gap: .75rem;
   align-items: center;
   margin: 1.5rem 0 1rem;
+}
+
+.actions--center {
+  justify-content: center;
+  gap: 1rem 1.5rem;
 }
 
 .btn:active { transform: scale(.97); }
