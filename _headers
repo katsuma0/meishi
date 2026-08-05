@@ -1,0 +1,11 @@
+# Cloudflare Pages headers. HTML stays on the default (revalidated) policy so
+# price changes go live immediately; the stylesheet revalidates within a few
+# hours; OG images are fetched by link-preview scrapers, not visitors.
+/style.css
+  Cache-Control: public, max-age=14400
+
+/favicon.svg
+  Cache-Control: public, max-age=86400
+
+/og/*
+  Cache-Control: public, max-age=604800
