@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://meishi.shop/</loc></url>
+<url><loc>https://meishi.shop/cards</loc></url>
+<url><loc>https://meishi.shop/about</loc></url>
   <url><loc>https://meishi.shop/metal</loc></url>
   <url><loc>https://meishi.shop/wood</loc></url>
   <url><loc>https://meishi.shop/paper</loc></url>
