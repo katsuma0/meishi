@@ -3,7 +3,9 @@
 Static site for meishi.shop. NFC business cards in six materials and small
 business websites, Markham, Ontario.
 
-Plain HTML and CSS. No build step, no npm, no JavaScript. `style.css` is
+Plain HTML and CSS. No build step, no npm. The only JavaScript is a
+few lines on `/order` that turn the inquiry box into a ready-to-send
+email; every other page ships none. `style.css` is
 the single source of truth for styles, and every page carries a copy
 inlined in a `<style>` block so the first paint needs no second request;
 after editing `style.css`, run `python3 tools/inline-css.py` and commit

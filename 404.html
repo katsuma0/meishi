@@ -71,16 +71,21 @@
   to { opacity: 1; transform: none; }
 }
 
-html { background: var(--bg); }
+html { background: var(--band); }
 
 body {
   margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   font-family: var(--display);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--ink);
   background: var(--bg);
 }
+
+main { flex: 1 0 auto; }
 
 /* the selvedge line, pulled through once on arrival */
 body::before {
@@ -120,9 +125,9 @@ body::before {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 1rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  gap: 1.25rem;
+  padding-top: .875rem;
+  padding-bottom: .875rem;
 }
 
 .mark {
@@ -138,12 +143,12 @@ body::before {
 .mark-kanji {
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
   font-weight: 400;
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   letter-spacing: .04em;
 }
 
 .mark-name {
-  font-size: .8125rem;
+  font-size: .875rem;
   letter-spacing: .12em;
 }
 
@@ -189,7 +194,7 @@ main {
   overflow: clip;
 }
 
-main > .wrap { padding-top: 2.5rem; }
+main > .wrap { padding-top: 3rem; }
 
 /* type */
 
@@ -201,7 +206,26 @@ h1, h2, h3 {
   margin: 0 0 .75rem;
 }
 
-h1 { font-size: clamp(2.25rem, 9vw, 3rem); position: relative; z-index: 0; }
+h1 {
+  font-size: clamp(1.625rem, 6vw, 2rem);
+  position: relative;
+  z-index: 0;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--accent);
+  margin-top: .5rem;
+  transform-origin: left;
+  animation: rule-in .5s .15s ease-out backwards;
+}
+
+@keyframes rule-in {
+  from { transform: scaleX(0); }
+}
 h2 { font-size: 1.3125rem; margin-top: 2.5rem; }
 h3 { font-size: 1.0625rem; margin-top: 1.75rem; }
 
@@ -453,6 +477,25 @@ td:last-child, th:last-child { padding-right: 0; }
   margin: 0 0 .75rem;
 }
 
+/* the inquiry box on /order */
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .375rem;
+}
+
+.field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  padding: .625rem .75rem;
+  resize: vertical;
+}
+
 /* long-form reading, /story */
 
 .prose { max-width: 62ch; }
@@ -464,11 +507,19 @@ td:last-child, th:last-child { padding-right: 0; }
 .shop {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-  gap: 1.25rem 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem 1.25rem;
 }
+
+.shop li { animation: settle .5s ease-out backwards; }
+.shop li:nth-child(1) { animation-delay: .05s; }
+.shop li:nth-child(2) { animation-delay: .11s; }
+.shop li:nth-child(3) { animation-delay: .17s; }
+.shop li:nth-child(4) { animation-delay: .23s; }
+.shop li:nth-child(5) { animation-delay: .29s; }
+.shop li:nth-child(6) { animation-delay: .35s; }
 
 .shop a {
   display: block;
@@ -542,12 +593,12 @@ td:last-child, th:last-child { padding-right: 0; }
   justify-content: space-between;
   gap: 0 .5rem;
   align-items: baseline;
-  padding-top: .375rem;
+  padding-top: .5rem;
 }
 
-.shop .mat { font-family: var(--display); font-weight: 600; color: var(--ink); }
+.shop .mat { font-family: var(--display); font-weight: 600; font-size: 1.0625rem; color: var(--ink); }
 .shop a:hover .mat { color: var(--accent); }
-.shop .from { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--ink); }
+.shop .from { white-space: nowrap; font-variant-numeric: tabular-nums; font-size: 1.0625rem; color: var(--ink); }
 
 /* work entries */
 
@@ -591,14 +642,18 @@ td:last-child, th:last-child { padding-right: 0; }
    is css; the pages stay the same size and the same speed. */
 
 @media (min-width: 48rem) {
-  .shop,
+  .shop {
+    width: min(46rem, calc(100vw - 4rem));
+    margin-left: 50%;
+    transform: translateX(-50%);
+    gap: 2.75rem 2rem;
+  }
+
   .grid {
     width: min(58rem, calc(100vw - 4rem));
     margin-left: 50%;
     transform: translateX(-50%);
   }
-
-  .shop { grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); }
 
   .photo { max-width: 30rem; }
 
