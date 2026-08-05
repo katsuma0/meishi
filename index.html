@@ -618,9 +618,17 @@ td:last-child, th:last-child { padding-right: 0; }
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem 1rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
+
+/* home entries that carry designs: lead card, then name and price, then
+   the tap-to-open stack, same element as on the card pages */
+.shop .designs { margin: 0; }
+.shop summary .design { margin-bottom: 0; }
+.shop details > .design:first-of-type { margin-top: .25rem; }
+.shop .shop-link { display: block; text-decoration: none; }
+.shop .designs-more { font-size: .875rem; padding: 0; }
 
 .shop li { animation: settle .5s ease-out backwards; }
 .shop li:nth-child(1) { animation-delay: .05s; }
@@ -776,10 +784,9 @@ td:last-child, th:last-child { padding-right: 0; }
 
 @media (min-width: 48rem) {
   .shop {
-    width: min(46rem, calc(100vw - 4rem));
-    margin-left: 50%;
-    transform: translateX(-50%);
-    gap: 2rem 1.5rem;
+    max-width: 32rem;
+    margin-inline: auto;
+    gap: 2.25rem;
   }
 
   .grid {
@@ -839,25 +846,47 @@ td:last-child, th:last-child { padding-right: 0; }
 <main id="main">
 <div class="wrap">
   <h1 class="visually-hidden">meishi NFC business cards</h1>
-  <p class="lede home-intro">Everything gets made in Markham. The cutting happens on my own machines, the sewn cards are stitched by hand, and anything encoded can be re-pointed later, because your card will outlive your phone number.</p>
+  <p class="lede home-intro">Everything gets made in Markham, Ontario, on my own machines. The sewn cards are stitched by hand, every card has an NFC tag inside, and anything encoded can be re-pointed later, because your card will outlive your phone number.</p>
 
   <ul class="shop">
-    <li><a href="embossed">
-      <span class="tile tile--embossed" aria-hidden="true"></span>
-      <span class="shop-row"><span class="mat">Embossed</span> <span class="from">20</span></span>
-    </a></li>
-    <li><a href="paper">
-      <span class="tile tile--paper" aria-hidden="true"></span>
-      <span class="shop-row"><span class="mat">Cardstock</span> <span class="from">3</span></span>
-    </a></li>
-    <li><a href="metal">
-      <span class="tile tile--metal" aria-hidden="true"></span>
-      <span class="shop-row"><span class="mat">Metal</span> <span class="from">40</span></span>
-    </a></li>
-    <li><a href="wood">
-      <span class="tile tile--wood" aria-hidden="true"></span>
-      <span class="shop-row"><span class="mat">Wood</span> <span class="from">35</span></span>
-    </a></li>
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="designs/cards/emboss-horizontal-white-blue.webp" alt="Embossed design: white card, name printed in indigo with the kanji pressed in relief" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="embossed"><span class="shop-row"><span class="mat">Embossed</span> <span class="from">20</span></span></a>
+        <span class="designs-more"><span class="more-closed">Three more designs. Tap to open.</span><span class="more-open">Tap to close.</span></span>
+      </summary>
+      <img class="design design--tall" src="designs/cards/emboss-vertical-black-hanko.webp" alt="Embossed design: black card, kanji raised in blind relief, a red hanko seal in the corner" width="665" height="1100" loading="lazy">
+      <img class="design design--tall" src="designs/cards/emboss-vertical-indigo.webp" alt="Embossed design: indigo card, kanji raised tone on tone" width="665" height="1100" loading="lazy">
+      <img class="design design--tall" src="designs/cards/emboss-vertical-purename.webp" alt="Embossed design: cream card, nothing but the name pressed in relief" width="665" height="1100" loading="lazy">
+    </details></li>
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="designs/cards/cardstock-white-blue-horizontal.webp" alt="Card stock design: name in indigo down the left, a pale blue kanji watermark on the right" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="paper"><span class="shop-row"><span class="mat">Cardstock</span> <span class="from">3</span></span></a>
+        <span class="designs-more"><span class="more-closed">Three more designs. Tap to open.</span><span class="more-open">Tap to close.</span></span>
+      </summary>
+      <img class="design design--tall" src="designs/cards/cardstock-white-blue-vertical.webp" alt="Card stock design: the same indigo and pale blue layout, portrait" width="665" height="1100" loading="lazy">
+      <img class="design" src="designs/cards/cardstock-cream-name.webp" alt="Card stock design on cream: name set vertically in indigo" width="1100" height="665" loading="lazy">
+      <img class="design" src="designs/cards/cardstock-white-centered.webp" alt="Card stock design: name centered on plain white" width="1100" height="665" loading="lazy">
+    </details></li>
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="designs/cards/metal-stainless-name.webp" alt="Metal design: brushed stainless, name engraved in a two column block" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="metal"><span class="shop-row"><span class="mat">Metal</span> <span class="from">40</span></span></a>
+        <span class="designs-more"><span class="more-closed">Two more designs. Tap to open.</span><span class="more-open">Tap to close.</span></span>
+      </summary>
+      <img class="design" src="designs/cards/metal-black-company.webp" alt="Metal design: matte black steel with the name and company engraved" width="1100" height="665" loading="lazy">
+      <img class="design" src="designs/cards/metal-stainless-minimal.webp" alt="Metal design: brushed stainless, name engraved on the right, the rest left bare" width="1100" height="665" loading="lazy">
+    </details></li>
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="designs/cards/wood-walnut-company.webp" alt="Wood design: walnut, name burned at the left, a large kanji mark on the right" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="wood"><span class="shop-row"><span class="mat">Wood</span> <span class="from">35</span></span></a>
+        <span class="designs-more"><span class="more-closed">Two more designs. Tap to open.</span><span class="more-open">Tap to close.</span></span>
+      </summary>
+      <img class="design" src="designs/cards/wood-cedar-name.webp" alt="Wood design: cedar, name across the upper left" width="1100" height="665" loading="lazy">
+      <img class="design" src="designs/cards/wood-oak-minimal.webp" alt="Wood design: pale oak, name and nothing else" width="1100" height="665" loading="lazy">
+    </details></li>
     <li><a href="fabric">
       <span class="tile tile--fabric" aria-hidden="true"></span>
       <span class="shop-row"><span class="mat">Fabric</span> <span class="from">20</span></span>
