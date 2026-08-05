@@ -29,7 +29,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
 
   --indigo: #22304a;   /* raw denim, dark */
   --cotton: #f2eee4;   /* unbleached cotton, light */
@@ -57,6 +57,23 @@
 }
 
 html.denim { --twill: var(--twill-weave); }
+
+/* dark mode: the same cloth after sundown. paper becomes deep indigo
+   night, ink becomes cotton, the band holds, the red thread brightens
+   a step so it still reads. follows the device setting. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151b28;
+    --ink: #ede9dd;
+    --band: #1d2942;
+    --accent: #c2544a;
+  }
+
+  .site-head, .btn, .nav-item > .drop, .menu-panel { color: #ede9dd; }
+
+  /* the drawn tiles keep their daylight materials */
+  .design, .mosaic img { filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .5)) drop-shadow(0 6px 16px rgba(0, 0, 0, .45)); }
+}
 
 * { box-sizing: border-box; }
 
@@ -1046,8 +1063,10 @@ td:last-child, th:last-child { padding-right: 0; }
   <p class="price">5</p>
   <p class="small">Canadian dollars, plus HST, each; counter tags are 8. Every one encoded with your link and ready to stick.</p>
 
+  <h3>Wholesale</h3>
+  <p>For shops that want to resell: half of retail, with a $200 opening order. I ship across Ontario and to the other provinces by Canada Post.</p>
+
   <div class="sticker-grid">
-    <img src="../designs/stickers/wifi-round-indigo.webp" alt="Round sticker: free wifi, hold phone here" width="720" height="720" loading="lazy">
     <img src="../designs/stickers/review-round-indigo.webp" alt="Round sticker: say it in stars, leave a review, hold phone here" width="720" height="720" loading="lazy">
     <img src="../designs/stickers/menu-round-indigo.webp" alt="Round sticker: today's menu, hold phone here" width="720" height="720" loading="lazy">
     <img src="../designs/stickers/instagram-round-indigo.webp" alt="Round sticker: follow on instagram, hold phone here" width="720" height="720" loading="lazy">

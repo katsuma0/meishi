@@ -29,7 +29,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
 
   --indigo: #22304a;   /* raw denim, dark */
   --cotton: #f2eee4;   /* unbleached cotton, light */
@@ -57,6 +57,23 @@
 }
 
 html.denim { --twill: var(--twill-weave); }
+
+/* dark mode: the same cloth after sundown. paper becomes deep indigo
+   night, ink becomes cotton, the band holds, the red thread brightens
+   a step so it still reads. follows the device setting. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151b28;
+    --ink: #ede9dd;
+    --band: #1d2942;
+    --accent: #c2544a;
+  }
+
+  .site-head, .btn, .nav-item > .drop, .menu-panel { color: #ede9dd; }
+
+  /* the drawn tiles keep their daylight materials */
+  .design, .mosaic img { filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .5)) drop-shadow(0 6px 16px rgba(0, 0, 0, .45)); }
+}
 
 * { box-sizing: border-box; }
 
@@ -1034,7 +1051,7 @@ td:last-child, th:last-child { padding-right: 0; }
   <p class="lede">Pick a material, we set the artwork together, and you approve a proof before anything gets made.</p>
 
   <ol>
-    <li>Pick a material and quantity. <a href="../meishi">All prices are on the cards page.</a></li>
+    <li>Pick a material and quantity. <a href="../meishi">All prices are on the meishi page.</a></li>
     <li>Email or call me.</li>
     <li>Approve the proof of concept.</li>
   </ol>

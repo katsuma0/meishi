@@ -29,7 +29,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
 
   --indigo: #22304a;   /* raw denim, dark */
   --cotton: #f2eee4;   /* unbleached cotton, light */
@@ -57,6 +57,23 @@
 }
 
 html.denim { --twill: var(--twill-weave); }
+
+/* dark mode: the same cloth after sundown. paper becomes deep indigo
+   night, ink becomes cotton, the band holds, the red thread brightens
+   a step so it still reads. follows the device setting. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151b28;
+    --ink: #ede9dd;
+    --band: #1d2942;
+    --accent: #c2544a;
+  }
+
+  .site-head, .btn, .nav-item > .drop, .menu-panel { color: #ede9dd; }
+
+  /* the drawn tiles keep their daylight materials */
+  .design, .mosaic img { filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .5)) drop-shadow(0 6px 16px rgba(0, 0, 0, .45)); }
+}
 
 * { box-sizing: border-box; }
 
@@ -1031,7 +1048,7 @@ td:last-child, th:last-child { padding-right: 0; }
 <main id="main">
 <div class="wrap">
   <h1 class="visually-hidden">meishi business cards</h1>
-  <p class="lede home-intro">Everything gets made in Markham, Ontario, on my own machines. The sewn cards are stitched by hand, and they all carry a microchip with an antenna inside; hold your phone over it and your link opens. Anything encoded can be re-pointed later, because your card will outlive your phone number.</p>
+  <p class="lede home-intro">Made in Markham, Ontario.</p>
 
   <ul class="shop shop--portal">
     <li><a class="portal" href="meishi">
@@ -1044,7 +1061,7 @@ td:last-child, th:last-child { padding-right: 0; }
     </a></li>
     <li><a class="portal" href="products">
       <span class="mosaic mosaic--stickers" aria-hidden="true">
-        <img src="designs/stickers/wifi-round-cream.webp" alt="" width="720" height="720" loading="lazy">
+        <img src="designs/stickers/directions-round-cream.webp" alt="" width="720" height="720" loading="lazy">
         <img src="designs/stickers/review-square-split.webp" alt="" width="720" height="720" loading="lazy">
         <img src="designs/stickers/menu-tag-indigo.webp" alt="" width="720" height="474" loading="lazy">
       </span>
