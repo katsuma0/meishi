@@ -50,9 +50,13 @@
   --tint: #e8e4d8;
   --tint: color-mix(in srgb, var(--ink) 5%, var(--bg));
 
-  /* faint diagonal weave for the indigo bands, the twill in the denim */
-  --twill: repeating-linear-gradient(45deg, rgba(242, 238, 228, .045) 0 1px, transparent 1px 5px);
+  /* faint diagonal weave, the twill in the denim. flat matte everywhere;
+     only the selvedge page (html.denim) wears the texture */
+  --twill-weave: repeating-linear-gradient(45deg, rgba(242, 238, 228, .045) 0 1px, transparent 1px 5px);
+  --twill: none;
 }
+
+html.denim { --twill: var(--twill-weave); }
 
 * { box-sizing: border-box; }
 
@@ -63,14 +67,18 @@
 
 @view-transition { navigation: auto; }
 
+/* pages swap in one frame: the old page's pixels hold until the new page
+   is ready, no fade, so nothing can flash between documents */
 ::view-transition-old(root),
-::view-transition-new(root) { animation-duration: .18s; }
+::view-transition-new(root) { animation: none; }
 
-/* the backdrop behind page snapshots during the crossfade. without this it
-   is white, and the safe-area strip above the header flashes on iPhone */
+/* the header never moves or fades between pages */
+::view-transition-group(site-head) { animation: none; }
+
+/* and if any gap ever shows behind snapshots, it is band and twill, not white */
 ::view-transition {
-  background: var(--bg);
-  background-image: linear-gradient(to bottom, var(--band) 50%, var(--bg) 50%);
+  background-color: var(--band);
+  background-image: var(--twill), linear-gradient(to bottom, var(--band) 50%, var(--bg) 50%);
 }
 
 @keyframes selvedge-draw {
@@ -108,9 +116,10 @@ body {
 
 main { flex: 1 0 auto; }
 
-/* the selvedge line, pulled through once on arrival */
+/* the red selvedge line, only where the denim is: the selvedge page */
 body::before {
   content: "";
+  display: none;
   position: fixed;
   top: calc(-1 * env(safe-area-inset-top, 0px));
   bottom: 0;
@@ -121,6 +130,8 @@ body::before {
   transform-origin: top;
   animation: selvedge-draw .7s ease-out;
 }
+
+.denim body::before { display: block; }
 
 /* the band carried past the top of the screen: when the page rubber-bands
    on a phone, indigo twill and the selvedge line show above the header,
@@ -133,9 +144,12 @@ body::after {
   top: calc(-100vh - env(safe-area-inset-top, 0px));
   height: calc(100vh + env(safe-area-inset-top, 0px) + 2px);
   background-color: var(--band);
-  background-image: linear-gradient(to right, var(--accent) 0 2px, transparent 2px 100%), var(--twill);
   z-index: 4;
   pointer-events: none;
+}
+
+.denim body::after {
+  background-image: linear-gradient(to right, var(--accent) 0 2px, transparent 2px 100%), var(--twill-weave);
 }
 
 .wrap {
@@ -289,13 +303,17 @@ body::after {
     animation: settle .18s ease-out;
   }
 
+  .site-head nav.menu-panel a {
+    display: block;
+    padding: .8125rem clamp(1rem, 4vw, 2rem);
+  }
+
   .menu-panel a {
     color: var(--cotton);
     text-decoration: none;
     font-family: var(--display);
     font-weight: 600;
     font-size: 1.0625rem;
-    padding: .8125rem clamp(1rem, 4vw, 2rem);
   }
 
   .menu-panel a:active { background: rgba(242, 238, 228, .08); }
@@ -814,7 +832,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .tile--selvedge {
   background: var(--indigo);
-  background-image: var(--twill);
+  background-image: var(--twill-weave);
   border-left: 4px solid var(--selvedge);
 }
 
@@ -1012,8 +1030,8 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <main id="main">
 <div class="wrap">
-  <h1>Cards</h1>
-  <p class="lede">Six materials, engraved, pressed, or sewn. Tap a card to see its other designs; tap the name for the full page.</p>
+  <h1>meishi</h1>
+  <p class="lede">Six materials, engraved, pressed, or sewn. Tap a meishi to see its other designs; tap the name for the full page.</p>
 
   <ul class="shop">
     <li><details class="designs">
