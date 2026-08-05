@@ -667,7 +667,7 @@ td:last-child, th:last-child { padding-right: 0; }
 /* the front page: two mosaics, cards then stickers, each one link to its
    product page. fr-only tracks, so vertical and horizontal cards tile
    together exactly at any width. */
-.shop--portal { gap: 2.75rem; }
+.shop--portal { gap: 3.5rem; }
 
 .portal { display: block; text-decoration: none; }
 
@@ -706,6 +706,14 @@ td:last-child, th:last-child { padding-right: 0; }
   font-size: .9375rem;
   color: #67707f;
   color: color-mix(in srgb, var(--ink) 65%, var(--bg));
+}
+
+/* the quiet footnote under the front page, for the ones who wonder */
+.home-note {
+  text-align: center;
+  margin-top: 3rem;
+  color: #67707f;
+  color: color-mix(in srgb, var(--ink) 55%, var(--bg));
 }
 
 .shop li { animation: settle .5s ease-out backwards; }
@@ -926,7 +934,7 @@ td:last-child, th:last-child { padding-right: 0; }
 <main id="main">
 <div class="wrap">
   <h1 class="visually-hidden">meishi business cards</h1>
-  <p class="lede home-intro">Business cards and stickers. Every one carries a microchip with an antenna inside; tap it with a phone and your link opens.</p>
+  <p class="lede home-intro">Business cards and stickers. They all carry a microchip with an antenna inside. Hold your phone over it and your link opens.</p>
 
   <ul class="shop shop--portal">
     <li><a class="portal" href="cards">
@@ -939,13 +947,15 @@ td:last-child, th:last-child { padding-right: 0; }
     </a></li>
     <li><a class="portal" href="uses">
       <span class="mosaic mosaic--stickers" aria-hidden="true">
-        <img src="designs/stickers/review-round-indigo.webp" alt="" width="720" height="720" loading="lazy">
-        <img src="designs/stickers/menu-square-split.webp" alt="" width="720" height="720" loading="lazy">
-        <img src="designs/stickers/wifi-tag-cream.webp" alt="" width="720" height="474" loading="lazy">
+        <img src="designs/stickers/wifi-round-indigo.webp" alt="" width="720" height="720" loading="lazy">
+        <img src="designs/stickers/review-square-split.webp" alt="" width="720" height="720" loading="lazy">
+        <img src="designs/stickers/menu-tag-indigo.webp" alt="" width="720" height="474" loading="lazy">
       </span>
       <span class="shop-row"><span class="mat">Stickers</span> <span class="sub">wifi, reviews, menus</span></span>
     </a></li>
   </ul>
+
+  <p class="small home-note">名刺 is Japanese for business card. Now you know.</p>
 </div>
 </main>
 
