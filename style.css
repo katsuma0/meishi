@@ -76,6 +76,8 @@ html {
 
 body {
   margin: 0;
+  /* the house quirk: every word on the site is lowercase */
+  text-transform: lowercase;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
