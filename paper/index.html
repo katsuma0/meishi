@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
 <title>Paper NFC cards, sold in packs | meishi</title>
-<meta name="description" content="Printed 400gsm NFC cards, tag laminated inside. Packs of 50 to 500, from $3.00 a card. The stack that sits by the register. Markham, Ontario.">
+<meta name="description" content="Printed 400gsm NFC cards, tag laminated inside. Packs of 50 to 500, from $1.50 a card. The stack that sits by the register. Markham, Ontario.">
 <link rel="canonical" href="https://meishi.shop/paper">
 <style>
 /* meishi.shop
@@ -236,8 +236,14 @@ a {
   text-underline-offset: 3px;
   cursor: pointer;
   touch-action: manipulation;
-  transition: color .15s ease, background-color .15s ease, text-decoration-color .15s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s ease, background-color .15s ease,
+              text-decoration-color .15s ease, border-color .15s ease,
+              transform .12s cubic-bezier(.2, .7, .3, 1);
 }
+
+/* pressed things give way slightly, like a real button under a thumb */
+a:active { transform: translateY(1px); }
 
 /* hover reads as stitches: the underline goes dotted and selvedge red */
 a:hover {
@@ -260,6 +266,8 @@ a:hover {
   align-items: center;
   margin: 1.5rem 0 1rem;
 }
+
+.btn:active { transform: scale(.97); }
 
 .btn {
   display: inline-block;
@@ -352,7 +360,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .num { text-align: right; }
 
-/* the six-material comparison table stacks on narrow screens.
+/* the material comparison table stacks on narrow screens.
    horizontal scroll on a price table loses the sale, so each row
    becomes its own block with inline labels instead. */
 
@@ -544,6 +552,8 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .card-list a:hover { background: var(--tint); }
 
+.card-list a:active { transform: scale(.985); background: var(--tint); }
+
 .card-list .mat { font-family: var(--display); font-weight: 600; }
 
 .card-list .from { font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -559,7 +569,6 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .swatch--metal { background: var(--steel); }
 .swatch--wood { background: var(--ply); }
-.swatch--plastic { background: #fdfdfa; }
 .swatch--paper { background: var(--cotton); }
 .swatch--fabric { background: var(--cotton); border-style: dashed; }
 .swatch--selvedge { background: var(--indigo); border-left: 3px solid var(--selvedge); }
@@ -612,7 +621,7 @@ td:last-child, th:last-child { padding-right: 0; }
 </style>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Paper NFC cards, sold in packs">
-<meta property="og:description" content="Printed 400gsm card, NFC tag laminated inside. Packs of 50 for $200, up to 500 for $1,500. The link can be changed later at no cost.">
+<meta property="og:description" content="Printed 400gsm card, NFC tag laminated inside. Packs of 50 for $125, up to 500 for $750. The link can be changed later at no cost.">
 <meta property="og:url" content="https://meishi.shop/paper">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="meishi">
@@ -647,10 +656,10 @@ td:last-child, th:last-child { padding-right: 0; }
       <tr><th scope="col">Pack</th><th scope="col" class="num">Price</th><th scope="col" class="num">Per card</th></tr>
     </thead>
     <tbody>
-      <tr><td>50 cards</td><td class="num">$200</td><td class="num">$4.00</td></tr>
-      <tr><td>100 cards</td><td class="num">$360</td><td class="num">$3.60</td></tr>
-      <tr><td>250 cards</td><td class="num">$825</td><td class="num">$3.30</td></tr>
-      <tr><td>500 cards</td><td class="num">$1,500</td><td class="num">$3.00</td></tr>
+      <tr><td>50 cards</td><td class="num">$125</td><td class="num">$2.50</td></tr>
+      <tr><td>100 cards</td><td class="num">$220</td><td class="num">$2.20</td></tr>
+      <tr><td>250 cards</td><td class="num">$475</td><td class="num">$1.90</td></tr>
+      <tr><td>500 cards</td><td class="num">$750</td><td class="num">$1.50</td></tr>
     </tbody>
   </table>
   <p class="small">Prices in Canadian dollars, plus HST. Made to order, two weeks from the day you approve the artwork.</p>
@@ -668,7 +677,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
   <p>Hold one up to a window and you can see the copper antenna coil through the paper. That coil is the whole machine.</p>
 
-  <p class="actions"><a class="btn" href="../order">How to order</a> <a class="btn btn--ghost" href="../cards">Compare all six</a></p>
+  <p class="actions"><a class="btn" href="../order">How to order</a> <a class="btn btn--ghost" href="../cards">Compare all five</a></p>
 </div>
 </main>
 

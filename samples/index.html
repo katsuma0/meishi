@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
 <title>Samples and photos | meishi</title>
-<meta name="description" content="Photos of the six NFC card materials: metal, wood, plastic, paper, fabric, and selvedge denim. Real shots as they get taken.">
+<meta name="description" content="Photos of the five NFC card materials: metal, selvedge denim, wood, fabric, and paper. Real shots as they get taken.">
 <link rel="canonical" href="https://meishi.shop/samples">
 <style>
 /* meishi.shop
@@ -236,8 +236,14 @@ a {
   text-underline-offset: 3px;
   cursor: pointer;
   touch-action: manipulation;
-  transition: color .15s ease, background-color .15s ease, text-decoration-color .15s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s ease, background-color .15s ease,
+              text-decoration-color .15s ease, border-color .15s ease,
+              transform .12s cubic-bezier(.2, .7, .3, 1);
 }
+
+/* pressed things give way slightly, like a real button under a thumb */
+a:active { transform: translateY(1px); }
 
 /* hover reads as stitches: the underline goes dotted and selvedge red */
 a:hover {
@@ -260,6 +266,8 @@ a:hover {
   align-items: center;
   margin: 1.5rem 0 1rem;
 }
+
+.btn:active { transform: scale(.97); }
 
 .btn {
   display: inline-block;
@@ -352,7 +360,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .num { text-align: right; }
 
-/* the six-material comparison table stacks on narrow screens.
+/* the material comparison table stacks on narrow screens.
    horizontal scroll on a price table loses the sale, so each row
    becomes its own block with inline labels instead. */
 
@@ -544,6 +552,8 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .card-list a:hover { background: var(--tint); }
 
+.card-list a:active { transform: scale(.985); background: var(--tint); }
+
 .card-list .mat { font-family: var(--display); font-weight: 600; }
 
 .card-list .from { font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -559,7 +569,6 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .swatch--metal { background: var(--steel); }
 .swatch--wood { background: var(--ply); }
-.swatch--plastic { background: #fdfdfa; }
 .swatch--paper { background: var(--cotton); }
 .swatch--fabric { background: var(--cotton); border-style: dashed; }
 .swatch--selvedge { background: var(--indigo); border-left: 3px solid var(--selvedge); }
@@ -612,7 +621,7 @@ td:last-child, th:last-child { padding-right: 0; }
 </style>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Samples and photos">
-<meta property="og:description" content="Photos of the six card materials as they get taken.">
+<meta property="og:description" content="Photos of the five card materials as they get taken.">
 <meta property="og:url" content="https://meishi.shop/samples">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="meishi">
@@ -640,14 +649,14 @@ td:last-child, th:last-child { padding-right: 0; }
   <p class="lede">Photos of the real cards go here as they get taken. Grey blocks in the meantime; I would rather show you nothing than a rendering.</p>
 
   <!-- TODO: shot list, replace each block with the real photo at the same aspect ratio:
-       1. All six cards fanned in the tin
+       1. All five cards fanned in the tin
        2. Selvedge card edge-on showing thickness and the red line
        3. Sashiko stitching close enough to see individual stitches
        4. A phone mid-tap
        5. Wood card next to metal for scale
        6. A pack of 50 paper cards in a holder on a counter -->
   <div class="grid">
-    <div class="photo photo--wide" style="grid-column: 1 / -1" role="img" aria-label="Photo coming: all six cards fanned in the tin">All six in the tin</div>
+    <div class="photo photo--wide" style="grid-column: 1 / -1" role="img" aria-label="Photo coming: all five cards fanned in the tin">All five in the tin</div>
     <div class="photo photo--square" role="img" aria-label="Photo coming: the selvedge card edge-on, thickness and red line visible">Selvedge, edge-on</div>
     <div class="photo photo--square" role="img" aria-label="Photo coming: sashiko stitching close up">Sashiko, close</div>
     <div class="photo photo--square" role="img" aria-label="Photo coming: a phone mid-tap on a card">A phone mid-tap</div>
@@ -655,7 +664,7 @@ td:last-child, th:last-child { padding-right: 0; }
     <div class="photo photo--wide" style="grid-column: 1 / -1" role="img" aria-label="Photo coming: a pack of fifty paper cards in a holder on a counter">50 paper cards by a register</div>
   </div>
 
-  <p style="margin-top:1.5rem"><a href="../cards">The six cards and prices</a> · <a href="../order">How to order</a></p>
+  <p style="margin-top:1.5rem"><a href="../cards">The five cards and prices</a> · <a href="../order">How to order</a></p>
 </div>
 </main>
 

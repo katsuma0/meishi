@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
-<title>All six NFC cards compared, full price list | meishi</title>
-<meta name="description" content="Metal, wood, plastic, paper, fabric, and selvedge denim NFC business cards compared. Every price and bulk tier on one page. Markham, Ontario.">
+<title>The five cards compared, full price list | meishi</title>
+<meta name="description" content="Metal, selvedge denim, wood, fabric, and paper NFC business cards compared. Every price and bulk tier on one page. Markham, Ontario.">
 <link rel="canonical" href="https://meishi.shop/cards">
 <style>
 /* meishi.shop
@@ -236,8 +236,14 @@ a {
   text-underline-offset: 3px;
   cursor: pointer;
   touch-action: manipulation;
-  transition: color .15s ease, background-color .15s ease, text-decoration-color .15s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s ease, background-color .15s ease,
+              text-decoration-color .15s ease, border-color .15s ease,
+              transform .12s cubic-bezier(.2, .7, .3, 1);
 }
+
+/* pressed things give way slightly, like a real button under a thumb */
+a:active { transform: translateY(1px); }
 
 /* hover reads as stitches: the underline goes dotted and selvedge red */
 a:hover {
@@ -260,6 +266,8 @@ a:hover {
   align-items: center;
   margin: 1.5rem 0 1rem;
 }
+
+.btn:active { transform: scale(.97); }
 
 .btn {
   display: inline-block;
@@ -352,7 +360,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .num { text-align: right; }
 
-/* the six-material comparison table stacks on narrow screens.
+/* the material comparison table stacks on narrow screens.
    horizontal scroll on a price table loses the sale, so each row
    becomes its own block with inline labels instead. */
 
@@ -544,6 +552,8 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .card-list a:hover { background: var(--tint); }
 
+.card-list a:active { transform: scale(.985); background: var(--tint); }
+
 .card-list .mat { font-family: var(--display); font-weight: 600; }
 
 .card-list .from { font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -559,7 +569,6 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .swatch--metal { background: var(--steel); }
 .swatch--wood { background: var(--ply); }
-.swatch--plastic { background: #fdfdfa; }
 .swatch--paper { background: var(--cotton); }
 .swatch--fabric { background: var(--cotton); border-style: dashed; }
 .swatch--selvedge { background: var(--indigo); border-left: 3px solid var(--selvedge); }
@@ -611,8 +620,8 @@ td:last-child, th:last-child { padding-right: 0; }
 }
 </style>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="All six NFC cards compared">
-<meta property="og:description" content="Metal, wood, plastic, paper, fabric, and selvedge denim, every price and bulk tier on one page.">
+<meta property="og:title" content="The five NFC cards compared">
+<meta property="og:description" content="Metal, selvedge denim, wood, fabric, and paper, every price and bulk tier on one page.">
 <meta property="og:url" content="https://meishi.shop/cards">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="meishi">
@@ -636,7 +645,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <main id="main">
 <div class="wrap">
-  <h1>The six cards <span class="h1-kanji" lang="ja" aria-hidden="true">六</span></h1>
+  <h1>The five cards <span class="h1-kanji" lang="ja" aria-hidden="true">五</span></h1>
   <p class="lede">Every price on this page. All in Canadian dollars, plus HST, made to order, two weeks from artwork approval. The link inside any card can be changed later at no cost.</p>
 
   <h2>Side by side</h2>
@@ -659,25 +668,18 @@ td:last-child, th:last-child { padding-right: 0; }
         <td class="num" data-label="Minimum">1</td>
       </tr>
       <tr>
+        <th scope="row"><a href="../selvedge">Selvedge</a></th>
+        <td class="num" data-label="Thickness">2.5mm</td>
+        <td class="num" data-label="Single">$55</td>
+        <td class="num" data-label="Best bulk">None</td>
+        <td class="num" data-label="Minimum">1, max 10</td>
+      </tr>
+      <tr>
         <th scope="row"><a href="../wood">Wood</a></th>
         <td class="num" data-label="Thickness">1.5mm</td>
         <td class="num" data-label="Single">$35</td>
         <td class="num" data-label="Best bulk">$28 at 50</td>
         <td class="num" data-label="Minimum">1</td>
-      </tr>
-      <tr>
-        <th scope="row"><a href="../plastic">Plastic</a></th>
-        <td class="num" data-label="Thickness">0.76mm</td>
-        <td class="num" data-label="Single">$20</td>
-        <td class="num" data-label="Best bulk">$14 at 100</td>
-        <td class="num" data-label="Minimum">1</td>
-      </tr>
-      <tr>
-        <th scope="row"><a href="../paper">Paper</a></th>
-        <td class="num" data-label="Thickness">400gsm</td>
-        <td class="num" data-label="Single">Packs only</td>
-        <td class="num" data-label="Best bulk">$3.00 at 500</td>
-        <td class="num" data-label="Minimum">Pack of 50</td>
       </tr>
       <tr>
         <th scope="row"><a href="../fabric">Fabric</a></th>
@@ -687,11 +689,11 @@ td:last-child, th:last-child { padding-right: 0; }
         <td class="num" data-label="Minimum">1, max 25</td>
       </tr>
       <tr>
-        <th scope="row"><a href="../selvedge">Selvedge</a></th>
-        <td class="num" data-label="Thickness">2.5mm</td>
-        <td class="num" data-label="Single">$55</td>
-        <td class="num" data-label="Best bulk">None</td>
-        <td class="num" data-label="Minimum">1, max 10</td>
+        <th scope="row"><a href="../paper">Paper</a></th>
+        <td class="num" data-label="Thickness">400gsm</td>
+        <td class="num" data-label="Single">Packs only</td>
+        <td class="num" data-label="Best bulk">$1.50 at 500</td>
+        <td class="num" data-label="Minimum">Pack of 50</td>
       </tr>
     </tbody>
   </table>
@@ -711,6 +713,14 @@ td:last-child, th:last-child { padding-right: 0; }
   </table>
 
   <table>
+    <caption>Selvedge, price each</caption>
+    <thead><tr><th scope="col">Quantity</th><th scope="col" class="num">Price each</th></tr></thead>
+    <tbody>
+      <tr><td>1 to 10</td><td class="num">$55</td></tr>
+    </tbody>
+  </table>
+
+  <table>
     <caption>Wood, price each</caption>
     <thead><tr><th scope="col">Quantity</th><th scope="col" class="num">Price each</th></tr></thead>
     <tbody>
@@ -718,28 +728,6 @@ td:last-child, th:last-child { padding-right: 0; }
       <tr><td>10 to 24</td><td class="num">$32</td></tr>
       <tr><td>25 to 49</td><td class="num">$30</td></tr>
       <tr><td>50 or more</td><td class="num">$28</td></tr>
-    </tbody>
-  </table>
-
-  <table>
-    <caption>Plastic, price each</caption>
-    <thead><tr><th scope="col">Quantity</th><th scope="col" class="num">Price each</th></tr></thead>
-    <tbody>
-      <tr><td>1 to 9</td><td class="num">$20</td></tr>
-      <tr><td>10 to 24</td><td class="num">$18</td></tr>
-      <tr><td>25 to 99</td><td class="num">$16</td></tr>
-      <tr><td>100 or more</td><td class="num">$14</td></tr>
-    </tbody>
-  </table>
-
-  <table>
-    <caption>Paper, per pack</caption>
-    <thead><tr><th scope="col">Pack</th><th scope="col" class="num">Price</th><th scope="col" class="num">Per card</th></tr></thead>
-    <tbody>
-      <tr><td>50 cards</td><td class="num">$200</td><td class="num">$4.00</td></tr>
-      <tr><td>100 cards</td><td class="num">$360</td><td class="num">$3.60</td></tr>
-      <tr><td>250 cards</td><td class="num">$825</td><td class="num">$3.30</td></tr>
-      <tr><td>500 cards</td><td class="num">$1,500</td><td class="num">$3.00</td></tr>
     </tbody>
   </table>
 
@@ -752,17 +740,20 @@ td:last-child, th:last-child { padding-right: 0; }
   </table>
 
   <table>
-    <caption>Selvedge, price each</caption>
-    <thead><tr><th scope="col">Quantity</th><th scope="col" class="num">Price each</th></tr></thead>
+    <caption>Paper, per pack</caption>
+    <thead><tr><th scope="col">Pack</th><th scope="col" class="num">Price</th><th scope="col" class="num">Per card</th></tr></thead>
     <tbody>
-      <tr><td>1 to 10</td><td class="num">$55</td></tr>
+      <tr><td>50 cards</td><td class="num">$125</td><td class="num">$2.50</td></tr>
+      <tr><td>100 cards</td><td class="num">$220</td><td class="num">$2.20</td></tr>
+      <tr><td>250 cards</td><td class="num">$475</td><td class="num">$1.90</td></tr>
+      <tr><td>500 cards</td><td class="num">$750</td><td class="num">$1.50</td></tr>
     </tbody>
   </table>
 
   <p>The fabric and selvedge cards have no bulk discount because they are sewn by hand, one at a time, and the tenth one takes exactly as long as the first. The price is the price at any quantity.</p>
 
   <h2>Without the tag</h2>
-  <p>Metal, wood, and plastic also come plain: the same card, no tag inside, $5 less at any quantity. That makes a single $35, $30, or $15. Most people take the tag; it is five dollars for the part that does something.</p>
+  <p>Metal and wood also come plain: the same card, no tag inside, $5 less at any quantity. That makes a single $35 or $30. Most people take the tag; it is five dollars for the part that does something.</p>
 
   <p class="actions"><a class="btn" href="../order">How to order</a></p>
 </div>

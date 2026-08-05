@@ -236,8 +236,14 @@ a {
   text-underline-offset: 3px;
   cursor: pointer;
   touch-action: manipulation;
-  transition: color .15s ease, background-color .15s ease, text-decoration-color .15s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s ease, background-color .15s ease,
+              text-decoration-color .15s ease, border-color .15s ease,
+              transform .12s cubic-bezier(.2, .7, .3, 1);
 }
+
+/* pressed things give way slightly, like a real button under a thumb */
+a:active { transform: translateY(1px); }
 
 /* hover reads as stitches: the underline goes dotted and selvedge red */
 a:hover {
@@ -260,6 +266,8 @@ a:hover {
   align-items: center;
   margin: 1.5rem 0 1rem;
 }
+
+.btn:active { transform: scale(.97); }
 
 .btn {
   display: inline-block;
@@ -352,7 +360,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .num { text-align: right; }
 
-/* the six-material comparison table stacks on narrow screens.
+/* the material comparison table stacks on narrow screens.
    horizontal scroll on a price table loses the sale, so each row
    becomes its own block with inline labels instead. */
 
@@ -544,6 +552,8 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .card-list a:hover { background: var(--tint); }
 
+.card-list a:active { transform: scale(.985); background: var(--tint); }
+
 .card-list .mat { font-family: var(--display); font-weight: 600; }
 
 .card-list .from { font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -559,7 +569,6 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .swatch--metal { background: var(--steel); }
 .swatch--wood { background: var(--ply); }
-.swatch--plastic { background: #fdfdfa; }
 .swatch--paper { background: var(--cotton); }
 .swatch--fabric { background: var(--cotton); border-style: dashed; }
 .swatch--selvedge { background: var(--indigo); border-left: 3px solid var(--selvedge); }
@@ -668,7 +677,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
   <p>The grain runs differently through every sheet of ply, so no two cards come out the same.</p>
 
-  <p class="actions"><a class="btn" href="../order">How to order</a> <a class="btn btn--ghost" href="../cards">Compare all six</a></p>
+  <p class="actions"><a class="btn" href="../order">How to order</a> <a class="btn btn--ghost" href="../cards">Compare all five</a></p>
 </div>
 </main>
 

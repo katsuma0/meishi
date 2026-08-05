@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#22304a">
 <title>meishi 名刺 | business cards you tap, Markham</title>
-<meta name="description" content="NFC business cards in six materials, made in Markham, Ontario. Tap a card and a link opens. From $14 a card.">
+<meta name="description" content="NFC business cards in five materials, made in Markham, Ontario. Tap a card and a link opens. From $1.50 a card.">
 <link rel="canonical" href="https://meishi.shop/">
 <style>
 /* meishi.shop
@@ -236,8 +236,14 @@ a {
   text-underline-offset: 3px;
   cursor: pointer;
   touch-action: manipulation;
-  transition: color .15s ease, background-color .15s ease, text-decoration-color .15s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s ease, background-color .15s ease,
+              text-decoration-color .15s ease, border-color .15s ease,
+              transform .12s cubic-bezier(.2, .7, .3, 1);
 }
+
+/* pressed things give way slightly, like a real button under a thumb */
+a:active { transform: translateY(1px); }
 
 /* hover reads as stitches: the underline goes dotted and selvedge red */
 a:hover {
@@ -260,6 +266,8 @@ a:hover {
   align-items: center;
   margin: 1.5rem 0 1rem;
 }
+
+.btn:active { transform: scale(.97); }
 
 .btn {
   display: inline-block;
@@ -352,7 +360,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .num { text-align: right; }
 
-/* the six-material comparison table stacks on narrow screens.
+/* the material comparison table stacks on narrow screens.
    horizontal scroll on a price table loses the sale, so each row
    becomes its own block with inline labels instead. */
 
@@ -544,6 +552,8 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .card-list a:hover { background: var(--tint); }
 
+.card-list a:active { transform: scale(.985); background: var(--tint); }
+
 .card-list .mat { font-family: var(--display); font-weight: 600; }
 
 .card-list .from { font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -559,7 +569,6 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .swatch--metal { background: var(--steel); }
 .swatch--wood { background: var(--ply); }
-.swatch--plastic { background: #fdfdfa; }
 .swatch--paper { background: var(--cotton); }
 .swatch--fabric { background: var(--cotton); border-style: dashed; }
 .swatch--selvedge { background: var(--indigo); border-left: 3px solid var(--selvedge); }
@@ -612,7 +621,7 @@ td:last-child, th:last-child { padding-right: 0; }
 </style>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="meishi 名刺, business cards you tap">
-<meta property="og:description" content="NFC business cards in six materials. Markham, Ontario.">
+<meta property="og:description" content="NFC business cards in five materials. Markham, Ontario.">
 <meta property="og:url" content="https://meishi.shop/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="meishi">
@@ -637,7 +646,7 @@ td:last-child, th:last-child { padding-right: 0; }
 <div class="hero"><div class="wrap">
   <h1 class="home-title" lang="ja">名刺</h1>
   <p class="home-sub">meishi · business cards you tap</p>
-  <p class="lede">Meishi is Japanese for business card. I make them in six materials in Markham, Ontario, and mine open things: touch a phone to the card and your link comes up, <a href="how-it-works">no app, no battery</a>.</p>
+  <p class="lede">Meishi is Japanese for business card. I make them in five materials in Markham, Ontario, and mine open things: touch a phone to the card and your link comes up, <a href="how-it-works">no app, no battery</a>.</p>
 </div></div>
 <div class="wrap">
 
@@ -645,13 +654,12 @@ td:last-child, th:last-child { padding-right: 0; }
 
   <ul class="card-list">
     <li><a href="metal"><span class="mat"><span class="swatch swatch--metal" aria-hidden="true"></span>Metal</span> <span class="from">from $32</span></a></li>
-    <li><a href="wood"><span class="mat"><span class="swatch swatch--wood" aria-hidden="true"></span>Wood</span> <span class="from">from $28</span></a></li>
-    <li><a href="plastic"><span class="mat"><span class="swatch swatch--plastic" aria-hidden="true"></span>Plastic</span> <span class="from">from $14</span></a></li>
-    <li><a href="paper"><span class="mat"><span class="swatch swatch--paper" aria-hidden="true"></span>Paper</span> <span class="from">from $3.00 a card</span></a></li>
-    <li><a href="fabric"><span class="mat"><span class="swatch swatch--fabric" aria-hidden="true"></span>Fabric</span> <span class="from">$30</span></a></li>
     <li><a href="selvedge"><span class="mat"><span class="swatch swatch--selvedge" aria-hidden="true"></span>Selvedge denim</span> <span class="from">$55</span></a></li>
+    <li><a href="wood"><span class="mat"><span class="swatch swatch--wood" aria-hidden="true"></span>Wood</span> <span class="from">from $28</span></a></li>
+    <li><a href="fabric"><span class="mat"><span class="swatch swatch--fabric" aria-hidden="true"></span>Fabric</span> <span class="from">$30</span></a></li>
+    <li><a href="paper"><span class="mat"><span class="swatch swatch--paper" aria-hidden="true"></span>Paper</span> <span class="from">from $1.50 a card</span></a></li>
   </ul>
-  <p class="small"><a href="cards">All six compared, with the full price list.</a></p>
+  <p class="small"><a href="cards">All five compared, with the full price list.</a></p>
 
   <p>The same chip goes into <a href="uses">wifi, review, and menu stickers</a> too.</p>
 
