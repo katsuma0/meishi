@@ -587,23 +587,52 @@ td:last-child, th:last-child { padding-right: 0; }
   width: 100%;
   height: auto;
   margin: 0 auto 1rem;
+  /* follows the card's rounded alpha edge, so even a white card reads
+     as a card against the paper, not white on white */
+  filter: drop-shadow(0 1px 2px rgba(34, 48, 74, .14)) drop-shadow(0 6px 16px rgba(34, 48, 74, .16));
 }
 
 /* portrait cards hold card size instead of flooding the column */
 .design--tall { max-width: 17rem; }
 
+/* no label, just a chevron: down to open, up to close */
 .designs-more {
   display: block;
-  text-align: center;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: .9375rem;
-  padding: 0 0 .5rem;
+  width: .625rem;
+  height: .625rem;
+  margin: .5rem auto .875rem;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  transform: rotate(45deg);
+  transition: transform .15s ease;
+  opacity: .55;
 }
 
-.designs summary:hover .designs-more { color: var(--accent); }
-.designs[open] .more-closed { display: none; }
-.designs:not([open]) .more-open { display: none; }
+.designs[open] .designs-more { transform: rotate(225deg); margin-top: .75rem; margin-bottom: .625rem; }
+
+.designs summary:hover .designs-more { opacity: 1; border-color: var(--accent); }
+
+@media (hover: hover) {
+  .designs summary .design { transition: transform .15s cubic-bezier(.2, .7, .3, 1), filter .15s ease; }
+  .designs summary:hover .design { transform: translateY(-2px); }
+}
+
+.designs summary:active .design { transform: scale(.985); }
+
+/* the opened designs: stacked on a phone, shoulder to shoulder on
+   anything wide enough to hold them in one row */
+@media (min-width: 48rem) {
+  /* a column per design, minmax(0,1fr) so the images can never push the
+     row out to their natural width */
+  .design-stack {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: .875rem;
+    align-items: start;
+  }
+  .design-stack .design { width: 100%; max-width: none; margin: 0; }
+}
 
 /* long-form reading, /story */
 
@@ -626,9 +655,11 @@ td:last-child, th:last-child { padding-right: 0; }
    the tap-to-open stack, same element as on the card pages */
 .shop .designs { margin: 0; }
 .shop summary .design { margin-bottom: 0; }
-.shop details > .design:first-of-type { margin-top: .25rem; }
+.shop .design-stack { margin-top: .25rem; }
 .shop .shop-link { display: block; text-decoration: none; }
-.shop .designs-more { font-size: .875rem; padding: 0; }
+
+/* the price shows once the card is pressed open */
+.shop details:not([open]) .from { display: none; }
 
 .shop li { animation: settle .5s ease-out backwards; }
 .shop li:nth-child(1) { animation-delay: .05s; }
@@ -864,12 +895,14 @@ td:last-child, th:last-child { padding-right: 0; }
   <details class="designs">
     <summary>
       <img class="design" src="../designs/cards/cardstock-white-blue-horizontal.webp" alt="Card stock design: name in indigo down the left, a pale blue kanji watermark on the right" width="1100" height="665" loading="lazy">
-      <span class="designs-more"><span class="more-closed">Three more designs. Tap to open.</span><span class="more-open">Tap to close.</span></span>
+      <span class="designs-more" aria-hidden="true"></span>
     </summary>
+    <div class="design-stack">
     <img class="design design--tall" src="../designs/cards/cardstock-white-blue-vertical.webp" alt="Card stock design: the same indigo and pale blue layout, portrait" width="665" height="1100" loading="lazy">
     <img class="design" src="../designs/cards/cardstock-cream-name.webp" alt="Card stock design on cream: name set vertically in indigo" width="1100" height="665" loading="lazy">
     <img class="design" src="../designs/cards/cardstock-white-centered.webp" alt="Card stock design: name centered on plain white" width="1100" height="665" loading="lazy">
-  </details>
+    </div>
+    </details>
 
   <!-- TODO: real photo. Shot: a stack of card stock in a wooden holder beside a cash register. -->
   <div class="photo" role="img" aria-label="Photo coming: a stack of card stock cards in a holder beside a cash register">Photo coming: the stack by the register</div>
