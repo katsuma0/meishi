@@ -555,6 +555,11 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .shop a:hover .tile { border-color: var(--accent); }
 
+@media (hover: hover) {
+  .tile { transition: border-color .15s ease, transform .15s cubic-bezier(.2, .7, .3, 1); }
+  .shop a:hover .tile { transform: translateY(-3px); }
+}
+
 .tile--metal {
   background: var(--steel);
   background-image:
@@ -633,6 +638,44 @@ td:last-child, th:last-child { padding-right: 0; }
   flex-wrap: wrap;
   gap: 0 1rem;
   margin-bottom: .75rem;
+}
+
+/* laptop and tablet: the column breathes, the shop grid breaks out to full
+   width, and the nav band sticks so every page is one click away. all of it
+   is css; the pages stay the same size and the same speed. */
+
+@media (min-width: 48rem) {
+  .wrap { max-width: 42rem; }
+
+  .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+  .shop,
+  .grid {
+    width: min(58rem, calc(100vw - 4rem));
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .shop { grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); }
+
+  .photo { max-width: 30rem; }
+
+  /* /uses reads like a catalog spread: mockup left, words beside it */
+  .mock {
+    float: left;
+    margin: .25rem 1.75rem 1rem 0;
+  }
+
+  main h2 { clear: both; }
+}
+
+@media (min-width: 64rem) {
+  html { font-size: 17px; }
+  .home-title { font-size: 6.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
