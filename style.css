@@ -364,6 +364,8 @@ th, td {
   vertical-align: top;
 }
 
+.home-intro { margin-bottom: 2rem; }
+
 /* the one price on a card page, set large and bare */
 .price {
   font-family: var(--display);
@@ -633,7 +635,9 @@ td:last-child, th:last-child { padding-right: 0; }
   text-align: center;
 }
 
-.foot-note { margin-bottom: .875rem; }
+.foot-links { margin-bottom: .875rem; }
+
+.foot-note { margin: 0; }
 
 .foot-links {
   display: flex;
