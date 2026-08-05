@@ -87,12 +87,14 @@ body { text-transform: lowercase;
 .links a:hover { background: var(--selvedge); }
 .links a:active { transform: scale(.97); }
 :focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 </style>
 </head>
 <body>
+  <h1 class="vh">meishi</h1>
   <a class="logo" href="https://meishi.shop"><span class="logo-kanji" lang="ja">名刺</span><span class="logo-name">meishi</span></a>
   <nav class="links" aria-label="meishi links">
     <!-- shop tap pages: copy this folder to t/<shopname>/, change the links -->
