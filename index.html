@@ -173,19 +173,12 @@ body::after {
   flex-shrink: 0;
 }
 
-.mark-name { padding-bottom: .375rem; }
-
 .mark-kanji {
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
   font-weight: 400;
   font-size: 3.6rem;
   line-height: 1;
   letter-spacing: .04em;
-}
-
-.mark-name {
-  font-size: .875rem;
-  letter-spacing: .12em;
 }
 
 .site-head nav {
@@ -225,24 +218,29 @@ body::after {
 
 .site-head nav::-webkit-scrollbar { display: none; }
 
-/* on narrow phones the romaji hides and the nav tightens, so the whole
-   bar fits without sliding and nothing ever moves */
-@media (max-width: 26rem) {
-  .mark-name { font-size: .625rem; padding-bottom: .25rem; }
+/* between phone and tablet the bar eases down one notch */
+@media (max-width: 34rem) {
   .mark-kanji { font-size: 2.5rem; }
-  .mark { gap: .375rem; }
-  .site-head .wrap { gap: .5rem; }
-  .site-head nav { font-size: .8125rem; font-weight: 500; gap: 0 .5rem; overflow-x: auto; }
+  .site-head .wrap { gap: .625rem; }
+  .site-head nav { font-size: .875rem; font-weight: 500; gap: 0 .5625rem; }
+  .site-head nav a { padding-left: .0625rem; padding-right: .0625rem; }
+}
+
+/* on narrow phones the nav tightens further, so the whole bar fits
+   without sliding and nothing ever moves */
+@media (max-width: 26rem) {
+  .mark-kanji { font-size: 2.25rem; }
+  .site-head .wrap { gap: .375rem; }
+  .site-head nav { font-size: .6875rem; font-weight: 500; gap: 0 .4375rem; overflow-x: auto; }
   .site-head nav a { padding-left: .0625rem; padding-right: .0625rem; }
   .nav-item > .drop { display: none !important; }
 }
 
 /* the smallest phones: everything a notch tighter so the bar still fits */
 @media (max-width: 21.25rem) {
-  .mark-kanji { font-size: 2.25rem; }
-  .mark-name { font-size: .5625rem; }
-  .site-head .wrap { gap: .375rem; padding-left: .75rem; padding-right: .75rem; }
-  .site-head nav { font-size: .75rem; gap: 0 .375rem; }
+  .mark-kanji { font-size: 1.875rem; }
+  .site-head .wrap { gap: .3125rem; padding-left: .75rem; padding-right: .75rem; }
+  .site-head nav { font-size: .625rem; gap: 0 .3125rem; }
 }
 
 .site-head nav a {
@@ -595,6 +593,9 @@ td:last-child, th:last-child { padding-right: 0; }
 /* portrait cards hold card size instead of flooding the column */
 .design--tall { max-width: 17rem; }
 
+/* stickers sit smaller still */
+.design--sticker { max-width: 15rem; }
+
 /* no label, just a chevron: down to open, up to close */
 .designs-more {
   display: block;
@@ -660,6 +661,50 @@ td:last-child, th:last-child { padding-right: 0; }
 
 /* the price shows once the card is pressed open */
 .shop details:not([open]) .from { display: none; }
+
+/* the front page: two mosaics, cards then stickers, each one link to its
+   product page. fr-only tracks, so vertical and horizontal cards tile
+   together exactly at any width. */
+.shop--portal { gap: 2.75rem; }
+
+.portal { display: block; text-decoration: none; }
+
+.mosaic { display: grid; }
+
+.mosaic img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(34, 48, 74, .14)) drop-shadow(0 6px 16px rgba(34, 48, 74, .16));
+}
+
+.mosaic--cards {
+  grid-template-columns: 1.368fr .05fr 1.0304fr;
+  grid-template-rows: .8272fr .05fr .8272fr;
+  aspect-ratio: 2.4484 / 1.7044;
+}
+.mosaic--cards img:nth-child(1) { grid-area: 1 / 1; }
+.mosaic--cards img:nth-child(2) { grid-area: 3 / 1; }
+.mosaic--cards img:nth-child(3) { grid-area: 1 / 3 / 4 / 4; }
+
+.mosaic--stickers {
+  grid-template-columns: 1fr .05fr 1fr .05fr 1.52fr;
+  aspect-ratio: 3.62 / 1;
+}
+.mosaic--stickers img:nth-child(1) { grid-area: 1 / 1; }
+.mosaic--stickers img:nth-child(2) { grid-area: 1 / 3; }
+.mosaic--stickers img:nth-child(3) { grid-area: 1 / 5; }
+
+@media (hover: hover) {
+  .portal .mosaic { transition: transform .15s cubic-bezier(.2, .7, .3, 1); }
+  .portal:hover .mosaic { transform: translateY(-3px); }
+}
+
+.shop .sub {
+  font-size: .9375rem;
+  color: #67707f;
+  color: color-mix(in srgb, var(--ink) 65%, var(--bg));
+}
 
 .shop li { animation: settle .5s ease-out backwards; }
 .shop li:nth-child(1) { animation-delay: .05s; }
@@ -860,79 +905,43 @@ td:last-child, th:last-child { padding-right: 0; }
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
-  <a class="mark" href="./"><span class="mark-kanji" lang="ja">名刺</span><span class="mark-name">meishi</span></a>
+  <a class="mark" href="./"><span class="mark-kanji" lang="ja">名刺</span></a>
   <nav aria-label="Site">
+    <a href="./">meishi</a>
     <div class="nav-item">
       <a href="uses">Products</a>
       <div class="drop">
-        <a href="./">Cards</a>
+        <a href="cards">Cards</a>
         <a href="uses">Stickers</a>
       </div>
     </div>
     <a href="samples">Samples</a>
     <a href="order">Order</a>
+    <a href="about">About</a>
   </nav>
 </div></header>
 
 <main id="main">
 <div class="wrap">
-  <h1 class="visually-hidden">meishi NFC business cards</h1>
-  <p class="lede home-intro">Everything gets made in Markham, Ontario, on my own machines. The sewn cards are stitched by hand, every card has an NFC tag inside, and anything encoded can be re-pointed later, because your card will outlive your phone number.</p>
+  <h1 class="visually-hidden">meishi business cards</h1>
+  <p class="lede home-intro">Business cards and stickers with a microchip and an antenna inside. Tap one with a phone and your link opens.</p>
 
-  <ul class="shop">
-    <li><details class="designs">
-      <summary>
-        <img class="design" src="designs/cards/emboss-horizontal-white-blue.webp" alt="Embossed design: white card, name printed in indigo with the kanji pressed in relief" width="1100" height="665" loading="lazy">
-        <a class="shop-link" href="embossed"><span class="shop-row"><span class="mat">Embossed</span> <span class="from">20</span></span></a>
-        <span class="designs-more" aria-hidden="true"></span>
-      </summary>
-    <div class="design-stack">
-      <img class="design design--tall" src="designs/cards/emboss-vertical-black-hanko.webp" alt="Embossed design: black card, kanji raised in blind relief, a red hanko seal in the corner" width="665" height="1100" loading="lazy">
-      <img class="design design--tall" src="designs/cards/emboss-vertical-indigo.webp" alt="Embossed design: indigo card, kanji raised tone on tone" width="665" height="1100" loading="lazy">
-      <img class="design design--tall" src="designs/cards/emboss-vertical-purename.webp" alt="Embossed design: cream card, nothing but the name pressed in relief" width="665" height="1100" loading="lazy">
-    </div>
-    </details></li>
-    <li><details class="designs">
-      <summary>
-        <img class="design" src="designs/cards/cardstock-white-blue-horizontal.webp" alt="Card stock design: name in indigo down the left, a pale blue kanji watermark on the right" width="1100" height="665" loading="lazy">
-        <a class="shop-link" href="paper"><span class="shop-row"><span class="mat">Cardstock</span> <span class="from">3</span></span></a>
-        <span class="designs-more" aria-hidden="true"></span>
-      </summary>
-    <div class="design-stack">
-      <img class="design design--tall" src="designs/cards/cardstock-white-blue-vertical.webp" alt="Card stock design: the same indigo and pale blue layout, portrait" width="665" height="1100" loading="lazy">
-      <img class="design" src="designs/cards/cardstock-cream-name.webp" alt="Card stock design on cream: name set vertically in indigo" width="1100" height="665" loading="lazy">
-      <img class="design" src="designs/cards/cardstock-white-centered.webp" alt="Card stock design: name centered on plain white" width="1100" height="665" loading="lazy">
-    </div>
-    </details></li>
-    <li><details class="designs">
-      <summary>
-        <img class="design" src="designs/cards/metal-stainless-name.webp" alt="Metal design: brushed stainless, name engraved in a two column block" width="1100" height="665" loading="lazy">
-        <a class="shop-link" href="metal"><span class="shop-row"><span class="mat">Metal</span> <span class="from">40</span></span></a>
-        <span class="designs-more" aria-hidden="true"></span>
-      </summary>
-    <div class="design-stack">
-      <img class="design" src="designs/cards/metal-black-company.webp" alt="Metal design: matte black steel with the name and company engraved" width="1100" height="665" loading="lazy">
-      <img class="design" src="designs/cards/metal-stainless-minimal.webp" alt="Metal design: brushed stainless, name engraved on the right, the rest left bare" width="1100" height="665" loading="lazy">
-    </div>
-    </details></li>
-    <li><details class="designs">
-      <summary>
-        <img class="design" src="designs/cards/wood-walnut-company.webp" alt="Wood design: walnut, name burned at the left, a large kanji mark on the right" width="1100" height="665" loading="lazy">
-        <a class="shop-link" href="wood"><span class="shop-row"><span class="mat">Wood</span> <span class="from">35</span></span></a>
-        <span class="designs-more" aria-hidden="true"></span>
-      </summary>
-    <div class="design-stack">
-      <img class="design" src="designs/cards/wood-cedar-name.webp" alt="Wood design: cedar, name across the upper left" width="1100" height="665" loading="lazy">
-      <img class="design" src="designs/cards/wood-oak-minimal.webp" alt="Wood design: pale oak, name and nothing else" width="1100" height="665" loading="lazy">
-    </div>
-    </details></li>
-    <li><a href="fabric">
-      <span class="tile tile--fabric" aria-hidden="true"></span>
-      <span class="shop-row"><span class="mat">Fabric</span> <span class="from">20</span></span>
+  <ul class="shop shop--portal">
+    <li><a class="portal" href="cards">
+      <span class="mosaic mosaic--cards" aria-hidden="true">
+        <img src="designs/cards/metal-stainless-name.webp" alt="" width="1100" height="665" loading="lazy">
+        <img src="designs/cards/wood-walnut-company.webp" alt="" width="1100" height="665" loading="lazy">
+        <img src="designs/cards/emboss-vertical-black-hanko.webp" alt="" width="665" height="1100" loading="lazy">
+      </span>
+      <span class="shop-row"><span class="mat">Cards</span> <span class="sub">six materials, all prices</span></span>
     </a></li>
-    <li><a href="selvedge">
-      <span class="tile tile--selvedge" aria-hidden="true"></span>
-      <span class="shop-row"><span class="mat">Selvedge</span></span>
+    <li><a class="portal" href="uses">
+      <span class="mosaic mosaic--stickers" aria-hidden="true">
+        <img src="designs/stickers/review-round-indigo.webp" alt="" width="720" height="720" loading="lazy">
+        <img src="designs/stickers/menu-square-split.webp" alt="" width="720" height="720" loading="lazy">
+        <img src="designs/stickers/wifi-tag-cream.webp" alt="" width="720" height="474" loading="lazy">
+      </span>
+      <span class="shop-row"><span class="mat">Stickers</span> <span class="sub">wifi, reviews, menus</span></span>
     </a></li>
   </ul>
 </div>

@@ -8,8 +8,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="meishi">
-<title>Page not found | meishi</title>
-<meta name="description" content="That page is not here. The cards and prices are.">
+<title>Cards and prices | meishi</title>
+<meta name="description" content="NFC business cards in six materials with every price listed. Made in Markham, Ontario.">
+<link rel="canonical" href="https://meishi.shop/cards">
 <style>
 /* meishi.shop
    Five colours, two faces, one red line.
@@ -890,13 +891,18 @@ td:last-child, th:last-child { padding-right: 0; }
   }
 }
 </style>
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Cards and prices, meishi">
+<meta property="og:description" content="Six materials, every price listed. Markham, Ontario.">
+<meta property="og:url" content="https://meishi.shop/cards">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="meishi">
+<meta property="og:image" content="https://meishi.shop/og/meishi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<!-- 404 links go one level up on purpose: the host redirects directory
-     urls to a trailing slash, so ../ lands on the site root whether the site
-     lives at meishi.shop/ or under a /meishi/ preview path. -->
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
   <a class="mark" href="../"><span class="mark-kanji" lang="ja">名刺</span></a>
@@ -917,9 +923,65 @@ td:last-child, th:last-child { padding-right: 0; }
 
 <main id="main">
 <div class="wrap">
-  <h1>Not here</h1>
-  <p class="lede">That page does not exist. The card links never change, so if a card brought you here, tell me and I will fix it the same day.</p>
-  <p><a href="../">Home</a> · <a href="../cards">Cards and prices</a> · <a href="../order">How to order</a></p>
+  <h1>Cards</h1>
+  <p class="lede">Six materials, engraved, pressed, or sewn. Tap a card to see its other designs; tap the name for the full page.</p>
+
+  <ul class="shop">
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="../designs/cards/emboss-horizontal-white-blue.webp" alt="Embossed design: white card, name printed in indigo with the kanji pressed in relief" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="../embossed"><span class="shop-row"><span class="mat">Embossed</span> <span class="from">20</span></span></a>
+        <span class="designs-more" aria-hidden="true"></span>
+      </summary>
+    <div class="design-stack">
+      <img class="design design--tall" src="../designs/cards/emboss-vertical-black-hanko.webp" alt="Embossed design: black card, kanji raised in blind relief, a red hanko seal in the corner" width="665" height="1100" loading="lazy">
+      <img class="design design--tall" src="../designs/cards/emboss-vertical-indigo.webp" alt="Embossed design: indigo card, kanji raised tone on tone" width="665" height="1100" loading="lazy">
+      <img class="design design--tall" src="../designs/cards/emboss-vertical-purename.webp" alt="Embossed design: cream card, nothing but the name pressed in relief" width="665" height="1100" loading="lazy">
+    </div>
+    </details></li>
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="../designs/cards/cardstock-white-blue-horizontal.webp" alt="Card stock design: name in indigo down the left, a pale blue kanji watermark on the right" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="../paper"><span class="shop-row"><span class="mat">Cardstock</span> <span class="from">3</span></span></a>
+        <span class="designs-more" aria-hidden="true"></span>
+      </summary>
+    <div class="design-stack">
+      <img class="design design--tall" src="../designs/cards/cardstock-white-blue-vertical.webp" alt="Card stock design: the same indigo and pale blue layout, portrait" width="665" height="1100" loading="lazy">
+      <img class="design" src="../designs/cards/cardstock-cream-name.webp" alt="Card stock design on cream: name set vertically in indigo" width="1100" height="665" loading="lazy">
+      <img class="design" src="../designs/cards/cardstock-white-centered.webp" alt="Card stock design: name centered on plain white" width="1100" height="665" loading="lazy">
+    </div>
+    </details></li>
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="../designs/cards/metal-stainless-name.webp" alt="Metal design: brushed stainless, name engraved in a two column block" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="../metal"><span class="shop-row"><span class="mat">Metal</span> <span class="from">40</span></span></a>
+        <span class="designs-more" aria-hidden="true"></span>
+      </summary>
+    <div class="design-stack">
+      <img class="design" src="../designs/cards/metal-black-company.webp" alt="Metal design: matte black steel with the name and company engraved" width="1100" height="665" loading="lazy">
+      <img class="design" src="../designs/cards/metal-stainless-minimal.webp" alt="Metal design: brushed stainless, name engraved on the right, the rest left bare" width="1100" height="665" loading="lazy">
+    </div>
+    </details></li>
+    <li><details class="designs">
+      <summary>
+        <img class="design" src="../designs/cards/wood-walnut-company.webp" alt="Wood design: walnut, name burned at the left, a large kanji mark on the right" width="1100" height="665" loading="lazy">
+        <a class="shop-link" href="../wood"><span class="shop-row"><span class="mat">Wood</span> <span class="from">35</span></span></a>
+        <span class="designs-more" aria-hidden="true"></span>
+      </summary>
+    <div class="design-stack">
+      <img class="design" src="../designs/cards/wood-cedar-name.webp" alt="Wood design: cedar, name across the upper left" width="1100" height="665" loading="lazy">
+      <img class="design" src="../designs/cards/wood-oak-minimal.webp" alt="Wood design: pale oak, name and nothing else" width="1100" height="665" loading="lazy">
+    </div>
+    </details></li>
+    <li><a href="../fabric">
+      <span class="tile tile--fabric" aria-hidden="true"></span>
+      <span class="shop-row"><span class="mat">Fabric</span> <span class="from">20</span></span>
+    </a></li>
+    <li><a href="../selvedge">
+      <span class="tile tile--selvedge" aria-hidden="true"></span>
+      <span class="shop-row"><span class="mat">Selvedge</span></span>
+    </a></li>
+  </ul>
 </div>
 </main>
 
