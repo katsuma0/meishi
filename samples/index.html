@@ -2,7 +2,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#22304a">
 <title>Samples and finished work | meishi</title>
 <meta name="description" content="Photos of the six card materials and finished jobs, as they happen. No fake shots, no fake clients. Markham, Ontario.">
@@ -75,7 +75,6 @@
 html {
   background: var(--bg);
   background-image: linear-gradient(to bottom, var(--band) 50%, var(--bg) 50%);
-  background-attachment: fixed;
 }
 
 body {
@@ -96,7 +95,7 @@ main { flex: 1 0 auto; }
 body::before {
   content: "";
   position: fixed;
-  top: 0;
+  top: calc(-1 * env(safe-area-inset-top, 0px));
   bottom: 0;
   left: 0;
   width: 2px;
@@ -124,6 +123,9 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 5;
+  padding-top: env(safe-area-inset-top, 0);
+  margin-top: calc(-1 * env(safe-area-inset-top, 0));
+  view-transition-name: site-head;
 }
 
 .site-head .wrap {
@@ -665,8 +667,9 @@ td:last-child, th:last-child { padding-right: 0; }
   background: var(--bg);
   color: var(--ink);
   border-top: 1px solid var(--line);
-  font-size: 1rem;
+  font-size: clamp(.6875rem, 3.4vw, 1rem);
   text-align: center;
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .foot-links { margin-bottom: 1.375rem; }
@@ -676,9 +679,10 @@ td:last-child, th:last-child { padding-right: 0; }
 .foot-links {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: .375rem 1rem;
+  flex-wrap: nowrap;
+  gap: 0 clamp(.375rem, 2vw, 1rem);
   margin: 0;
+  white-space: nowrap;
 }
 
 .site-foot .wrap {
