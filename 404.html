@@ -890,6 +890,27 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .job h2 { margin-top: 0; }
 
+/* blog entries, /blog: one block per project, same rule-topped shape as
+   the work entries. dates are written in the copy, toronto time, so they
+   never shift under a reader in another timezone. */
+
+.post {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.post h2 { margin-top: 0; margin-bottom: .25rem; }
+
+.post-date {
+  font-family: var(--display);
+  font-size: .8125rem;
+  letter-spacing: .08em;
+  color: #67707f;
+  color: color-mix(in srgb, var(--ink) 55%, var(--bg));
+  margin: 0 0 .625rem;
+}
+
 /* footer: same paper as the page, held by a hairline rule */
 
 .site-foot {
@@ -1009,6 +1030,7 @@ td:last-child, th:last-child { padding-right: 0; }
     <a href="../samples">Samples</a>
     <a href="../order">Order</a>
     <a href="../about">About</a>
+    <a href="../blog">Blog</a>
   </nav>
   <details class="menu">
     <summary aria-label="Menu"><span class="menu-icon" aria-hidden="true"></span></summary>
@@ -1018,6 +1040,7 @@ td:last-child, th:last-child { padding-right: 0; }
       <a href="../samples">Samples</a>
       <a href="../order">Order</a>
       <a href="../about">About</a>
+      <a href="../blog">Blog</a>
     </nav>
   </details>
 </div></header>
