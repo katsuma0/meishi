@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60mm" height="60mm" viewBox="0 0 60 60">
+<title>Round wifi sticker, 60mm: tap for wifi</title>
+<circle cx="30" cy="30" r="30" fill="#22304a"/>
+<circle cx="30" cy="33" r="2.3" fill="#f2eee4"/>
+<path d="M23.99,26.99 A8.5,8.5 0 0 1 36.01,26.99 L33.89,29.11 A5.5,5.5 0 0 0 26.11,29.11 Z" fill="#f2eee4"/>
+<path d="M20.45,23.45 A13.5,13.5 0 0 1 39.55,23.45 L37.42,25.58 A10.5,10.5 0 0 0 22.58,25.58 Z" fill="#f2eee4"/>
+<path d="M16.92,19.92 A18.5,18.5 0 0 1 43.08,19.92 L40.96,22.04 A15.5,15.5 0 0 0 19.04,22.04 Z" fill="#f2eee4"/>
+<text x="30" y="51" font-family="system-ui, 'Segoe UI', Roboto, Arial, sans-serif" font-size="4" font-weight="700" fill="#f2eee4" text-anchor="middle" letter-spacing=".5">TAP FOR WIFI</text>
+<rect x="26" y="55" width="8" height="1.4" fill="#a13d36"/>
+</svg>

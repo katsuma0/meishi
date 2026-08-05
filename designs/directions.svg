@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60mm" height="60mm" viewBox="0 0 60 60">
+<title>Round sticker, 60mm: tap for directions</title>
+<circle cx="30" cy="30" r="30" fill="#f2eee4"/>
+<path d="M0,30 A30,30 0 1 1 60,30 A30,30 0 1 1 0,30 Z M1.3999999999999986,30 A28.6,28.6 0 1 0 58.6,30 A28.6,28.6 0 1 0 1.3999999999999986,30 Z" fill-rule="evenodd" fill="#22304a"/>
+<path d="M30,38 C26.5,32.5 21,28.5 21,22 A9,9 0 1 1 39,22 C39,28.5 33.5,32.5 30,38 Z M30,25.3 A3.3,3.3 0 1 0 30,18.7 A3.3,3.3 0 1 0 30,25.3 Z" fill-rule="evenodd" fill="#22304a"/>
+<circle cx="30" cy="22" r="2" fill="#a13d36"/>
+<text x="30" y="46.5" font-family="system-ui, 'Segoe UI', Roboto, Arial, sans-serif" font-size="3.8" font-weight="700" fill="#22304a" text-anchor="middle" letter-spacing=".4">TAP FOR</text>
+<text x="30" y="51.5" font-family="system-ui, 'Segoe UI', Roboto, Arial, sans-serif" font-size="3.8" font-weight="700" fill="#22304a" text-anchor="middle" letter-spacing=".4">DIRECTIONS</text>
+</svg>

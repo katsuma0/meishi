@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76mm" height="50mm" viewBox="0 0 76 50">
+<title>Counter tag, 76 by 50mm: tap to leave us a review</title>
+<rect width="76" height="50" rx="4" fill="#22304a"/>
+<rect x="0" y="4" width="1.5" height="42" fill="#a13d36"/>
+<polygon points="20.00,11.40 20.89,13.78 23.42,13.89 21.44,15.47 22.12,17.91 20.00,16.51 17.88,17.91 18.56,15.47 16.58,13.89 19.11,13.78" fill="#f2eee4"/> <polygon points="29.00,11.40 29.89,13.78 32.42,13.89 30.44,15.47 31.12,17.91 29.00,16.51 26.88,17.91 27.56,15.47 25.58,13.89 28.11,13.78" fill="#f2eee4"/> <polygon points="38.00,11.40 38.89,13.78 41.42,13.89 39.44,15.47 40.12,17.91 38.00,16.51 35.88,17.91 36.56,15.47 34.58,13.89 37.11,13.78" fill="#f2eee4"/> <polygon points="47.00,11.40 47.89,13.78 50.42,13.89 48.44,15.47 49.12,17.91 47.00,16.51 44.88,17.91 45.56,15.47 43.58,13.89 46.11,13.78" fill="#f2eee4"/> <polygon points="56.00,11.40 56.89,13.78 59.42,13.89 57.44,15.47 58.12,17.91 56.00,16.51 53.88,17.91 54.56,15.47 52.58,13.89 55.11,13.78" fill="#f2eee4"/>
+<text x="38" y="30.5" font-family="system-ui, 'Segoe UI', Roboto, Arial, sans-serif" font-size="5" font-weight="700" fill="#f2eee4" text-anchor="middle">Tap to leave us a review</text>
+<text x="38" y="38.5" font-family="system-ui, 'Segoe UI', Roboto, Arial, sans-serif" font-size="3.4" font-weight="400" fill="#f2eee4" text-anchor="middle" opacity=".85">it takes about twenty seconds</text>
+</svg>
