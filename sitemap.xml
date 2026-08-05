@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://meishi.shop/</loc></url>
-<url><loc>https://meishi.shop/cards</loc></url>
+<url><loc>https://meishi.shop/meishi</loc></url>
 <url><loc>https://meishi.shop/about</loc></url>
   <url><loc>https://meishi.shop/metal</loc></url>
   <url><loc>https://meishi.shop/wood</loc></url>
@@ -12,6 +12,6 @@
   <url><loc>https://meishi.shop/websites</loc></url>
   <url><loc>https://meishi.shop/how-it-works</loc></url>
   <url><loc>https://meishi.shop/order</loc></url>
-  <url><loc>https://meishi.shop/uses</loc></url>
+  <url><loc>https://meishi.shop/products</loc></url>
   <url><loc>https://meishi.shop/samples</loc></url>
 </urlset>
