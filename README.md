@@ -99,11 +99,3 @@ provinces by Canada Post.
 
 Never commit to main; every change is a branch and a PR. No em dashes in
 copy. No JS unless a feature genuinely needs it. Every page under 100KB.
-
-## The app
-
-`app/` holds meishi nfc tools, the free read/write/erase/copy/lock app
-(React Native, Expo). It used to be its own repo, meishi-program; its
-history came along in the merge. Everything about building and running
-it is in `app/README.md`. Pages doesn't serve it: `_config.yml` keeps it
-out of the site build.
