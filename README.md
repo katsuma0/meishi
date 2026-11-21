@@ -58,16 +58,17 @@ mistyped card link.
 ## Link pages
 
 One tap can open a whole page of links: reviews, Instagram, menu, maps.
-These are sold as a product ("link pages" on /products) and are built to
-live at meishi.world under the customer's name once that domain is wired
-up (separate repo, CNAME meishi.world, same GitHub Pages setup as this
-one). Until then they live here:
+These are sold as a product ("link pages" on /products) and live right
+here on meishi.shop under the customer's name. meishi.world was planned as
+a separate domain for them; it's been folded into this repo instead, so
+don't wire it up.
 
 - `/katsuma` is the official example, Katsuma's own page.
 - `t/demo/` is the template. To make a customer's page, copy `t/demo/`
-  to `t/<shopname>/` (or a top-level `/<name>/` for the meishi.world
-  style), change the title, the h1, the logo if they have one, and the
-  button links, then commit and push. Encode the card to that URL.
+  to a top-level `/<name>/`, lowercase, no spaces. Change the title, the
+  h1, the logo if they have one, and the button links, then commit and
+  push. Encode the card to `https://meishi.shop/<name>`. That folder name
+  is on a physical card now, so it can never change.
 - These pages are noindexed on purpose; they are for taps, not search.
 
 ## Prices
@@ -98,3 +99,11 @@ provinces by Canada Post.
 
 Never commit to main; every change is a branch and a PR. No em dashes in
 copy. No JS unless a feature genuinely needs it. Every page under 100KB.
+
+## The app
+
+`app/` holds meishi nfc tools, the free read/write/erase/copy/lock app
+(React Native, Expo). It used to be its own repo, meishi-program; its
+history came along in the merge. Everything about building and running
+it is in `app/README.md`. Pages doesn't serve it: `_config.yml` keeps it
+out of the site build.
